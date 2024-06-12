@@ -1,5 +1,9 @@
 # Project 3: Around The U.S.
 
+## TO DO
+* Complete README file
+* Record and upload video after initial iteration is returned and re-submitted.
+
 ### Overview  
 
 * Intro  
