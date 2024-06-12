@@ -1,0 +1,120 @@
+.profile {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.profile__image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin: 0 24px 0 0;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "title button"
+    "description description";
+  grid-template-columns: 4fr min-content;
+  grid-gap: 7px 18px;
+  align-items: center;
+  padding-right: 2%;
+}
+
+.profile__title {
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 500;
+  grid-area: title;
+  margin: 0;
+  transition: font-size 1s ease;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__description {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+  grid-area: description;
+  margin: 0;
+  transition: font-size 1s ease;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__edit-button {
+  background: transparent url(../images/edit-icon.svg) center no-repeat;
+  height: 24px;
+  width: 24px;
+  grid-area: button;
+  border: inset 2px white;
+  transition: opacity 1s ease;
+}
+
+.profile__add-button {
+  background: transparent url(../images/add-icon.svg) center no-repeat;
+  height: 50px;
+  width: 150px;
+  margin-left: auto;
+  border: inset 2px white;
+  transition: width 1s ease;
+  transition: opacity 1s ease;
+}
+
+.profile__edit-button:hover {
+  opacity: 60%;
+}
+
+.profile__add-button:hover {
+  opacity: 60%;
+}
+
+@media screen and (max-width: 785px) {
+  .profile__title {
+    font-size: calc(42px * 0.7);
+  }
+
+  .profile__description {
+    font-size: calc(18px * 0.7);
+  }
+
+  .profile__add-button {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .profile {
+    flex-direction: column;
+    padding-top: 42px;
+  }
+
+  .profile__image {
+    margin: 0 auto 26.25px;
+  }
+
+  .profile__info {
+    grid-template-columns: max-content;
+    grid-gap: 14px 10px;
+  }
+
+  .profile__title {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .profile__description {
+    font-size: 14px;
+    grid-column-end: span 2;
+    justify-self: center;
+  }
+
+  .profile__add-button {
+    margin-top: 36px;
+    width: 100%;
+  }
+}
