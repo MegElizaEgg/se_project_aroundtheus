@@ -53,8 +53,7 @@
   height: 24px;
   width: 24px;
   grid-area: button;
-  border: solid 2px white;
-  border-radius: 2px;
+  border: solid 1px white;
   transition: opacity 1s ease;
 }
 
@@ -130,6 +129,5 @@
     width: 18px;
     height: 18px;
     background-size: 7.5px;
-    border: solid 1px white;
   }
 }
