@@ -1,3 +1,21 @@
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.65, 0.65);
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0.65, 0.65);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -38,6 +56,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url(../images/close.svg);
+  transition: height 1s ease;
+  transition: width 1s ease;
+  transition: left 1s ease;
 }
 
 .modal__heading {
@@ -46,6 +67,7 @@
   line-height: 1.2;
   color: #000;
   margin: 0 0 54px 0;
+  transition: font-size 1s ease;
 }
 
 .modal__form {
@@ -79,12 +101,13 @@ I cannot get the above to render to the browser, it's still being overwritten by
   margin-top: 48px;
   width: 100%;
   padding: 0;
-  font-weight: 18px;
+  font-size: 18px;
   line-height: 1.2;
   color: #fff;
   background-color: #000;
   border-radius: 2px;
   height: 50px;
+  transition: font-size 1s ease;
 }
 
 @media screen and (max-width: 635px) {
@@ -93,17 +116,22 @@ I cannot get the above to render to the browser, it's still being overwritten by
     padding: 25px 22px;
   }
   .modal__close {
-    /* bottom: calc(100% + 5px);
-    left: calc(100% -26px); */
     bottom: calc(100% + 13px);
-    left: calc(100% - 26px);
-
-    width: 26px;
-    height: 26px;
+    left: calc(100% - 30px);
+    animation: shrink 1s ease forwards;
   }
   .modal__heading {
     font-size: 18px;
+  }
+  .modal__button {
+    margin-top: 45px;
+    font-size: 14px;
+    height: 46px;
+  }
+}
 
-    margin: 0 0 75px 0;
+@media screen and (min-width: 635px) {
+  .modal__close {
+    animation: grow 1s ease forwards;
   }
 }
