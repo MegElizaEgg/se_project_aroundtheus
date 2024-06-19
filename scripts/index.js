@@ -26,3 +26,11 @@ const initialCards = [
 ];
 
 console.log(initialCards);
+
+const weather = "wind";
+
+function discussWeather(weather) {
+  console.log(`How about this ${weather}?`);
+}
+
+discussWeather("rain");

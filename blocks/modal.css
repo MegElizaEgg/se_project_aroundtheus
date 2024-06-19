@@ -1,0 +1,109 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  /* display: none; */
+  padding: 0 19px;
+}
+
+/* .modal_opened {
+  display: flex;
+} */
+
+.modal__container {
+  position: relative;
+  background-color: #ffff;
+  margin: auto;
+  padding: 36px;
+  border-radius: 10px;
+  max-width: 358px;
+  min-width: 238px;
+  width: 100%;
+}
+
+.modal__close {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../images/close.svg);
+}
+
+.modal__heading {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #000;
+  margin: 0 0 54px 0;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.modal__input {
+  border: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  line-height: 1.2;
+  color: #000;
+  overflow: hidden;
+  padding-bottom: 13px;
+}
+
+/* .modal__input::placeholder,
+.modal__input::-ms-input-placeholder,
+.modal__input::-moz-placeholder,
+.modal__input::-webkit-input-placeholder {
+  font-size: 14px;
+  line-height: 1.2;
+  color: #000;
+}
+
+I cannot get the above to render to the browser, it's still being overwritten by the browser settings*/
+
+.modal__button {
+  margin-top: 48px;
+  width: 100%;
+  padding: 0;
+  font-weight: 18px;
+  line-height: 1.2;
+  color: #fff;
+  background-color: #000;
+  border-radius: 2px;
+  height: 50px;
+}
+
+@media screen and (max-width: 635px) {
+  .modal__container {
+    margin: auto;
+    padding: 25px 22px;
+  }
+  .modal__close {
+    /* bottom: calc(100% + 5px);
+    left: calc(100% -26px); */
+    bottom: calc(100% + 13px);
+    left: calc(100% - 26px);
+
+    width: 26px;
+    height: 26px;
+  }
+  .modal__heading {
+    font-size: 18px;
+
+    margin: 0 0 75px 0;
+  }
+}
