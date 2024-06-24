@@ -25,13 +25,13 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   display: flex;
-  /* display: none; */
+  display: none;
   padding: 0 19px;
 }
 
-/* .modal_opened {
+.modal_opened {
   display: flex;
-} */
+}
 
 .modal__container {
   position: relative;
@@ -59,6 +59,11 @@
   transition: height 1s ease;
   transition: width 1s ease;
   transition: left 1s ease;
+  transition: opacity 1s ease;
+}
+
+.modal__close:hover {
+  opacity: 60%;
 }
 
 .modal__heading {

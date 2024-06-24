@@ -25,12 +25,14 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
+/* Elements */
+const profileEditButton = document.querySelector("#profile-edit-button");
+const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileEditClose = document.querySelector("#profile-edit-close");
 
-const weather = "wind";
-
-function discussWeather(weather) {
-  console.log(`How about this ${weather}?`);
-}
-
-discussWeather("rain");
+profileEditButton.addEventListener("click", () => {
+  profileEditModal.classList.add("modal_opened");
+});
+profileEditClose.addEventListener("click", () => {
+  profileEditModal.classList.remove("modal_opened");
+});
