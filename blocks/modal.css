@@ -91,17 +91,6 @@
   margin-bottom: 30px;
 }
 
-/* .modal__input::placeholder,
-.modal__input::-ms-input-placeholder,
-.modal__input::-moz-placeholder,
-.modal__input::-webkit-input-placeholder {
-  font-size: 14px;
-  line-height: 1.2;
-  color: #000;
-}
-
-I cannot get the above to render to the browser, it's still being overwritten by the browser settings*/
-
 .modal__button {
   width: 100%;
   padding: 0;
@@ -112,7 +101,13 @@ I cannot get the above to render to the browser, it's still being overwritten by
   border-radius: 2px;
   height: 50px;
   transition: font-size 1s ease;
+  transition: opacity 1s ease;
   margin-top: 18px;
+}
+
+.modal__button:hover {
+  opacity: 80%;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 635px) {
