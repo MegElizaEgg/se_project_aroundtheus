@@ -45,74 +45,7 @@
           </div>
           <button class="profile__add-button"></button>
         </section>
-        <section class="gallery page__section">
-          <div class="gallery__card">
-            <img
-              src="./images/yosemite.jpg"
-              alt="Yosemite Valley"
-              class="gallery__image"
-            />
-            <div class="gallery__description">
-              <h2 class="gallery__text">Yosemite Valley</h2>
-              <button class="gallery__like-button"></button>
-            </div>
-          </div>
-          <div class="gallery__card">
-            <img
-              src="./images/lake-louise.jpg"
-              alt="Lake Louise"
-              class="gallery__image"
-            />
-            <div class="gallery__description">
-              <h2 class="gallery__text">Lake Louise</h2>
-              <button class="gallery__like-button"></button>
-            </div>
-          </div>
-          <div class="gallery__card">
-            <img
-              src="./images/bald-mountains.jpg"
-              alt="Bald Mountains"
-              class="gallery__image"
-            />
-            <div class="gallery__description">
-              <h2 class="gallery__text">Bald Mountains</h2>
-              <button class="gallery__like-button"></button>
-            </div>
-          </div>
-          <div class="gallery__card">
-            <img
-              src="./images/latemar.jpg"
-              alt="Latemar"
-              class="gallery__image"
-            />
-            <div class="gallery__description">
-              <h2 class="gallery__text">Latemar</h2>
-              <button class="gallery__like-button"></button>
-            </div>
-          </div>
-          <div class="gallery__card">
-            <img
-              src="./images/vanoise.jpg"
-              alt="Vanoise National Park"
-              class="gallery__image"
-            />
-            <div class="gallery__description">
-              <h2 class="gallery__text">Vanoise National Park</h2>
-              <button class="gallery__like-button"></button>
-            </div>
-          </div>
-          <div class="gallery__card">
-            <img
-              src="./images/lago.jpg"
-              alt="Lago di Braies"
-              class="gallery__image"
-            />
-            <div class="gallery__description">
-              <h2 class="gallery__text">Lago di Braies</h2>
-              <button class="gallery__like-button"></button>
-            </div>
-          </div>
-        </section>
+        <section class="gallery page__section"></section>
       </main>
       <footer class="footer page__section">&copy; 2024 Around The U.S.</footer>
     </div>
@@ -141,6 +74,17 @@
         </form>
       </div>
     </div>
+
+    <template id="gallery-card-template">
+      <div class="gallery__card">
+        <img src="" alt="" class="gallery__image" />
+        <div class="gallery__description">
+          <h2 class="gallery__text"></h2>
+          <button class="gallery__like-button"></button>
+        </div>
+      </div>
+    </template>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
