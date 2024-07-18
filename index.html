@@ -33,18 +33,18 @@
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button"></button>
+          <button class="gallery__add-button" id="gallery-add-button"></button>
         </section>
         <section class="gallery page__section" id="gallery-cards"></section>
       </main>
       <footer class="footer page__section">&copy; 2024 Around The U.S.</footer>
     </div>
-    <!-- Edit modal -->
+    <!-- Profile Edit modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" id="profile-edit-close"></button>
         <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form">
+        <form class="modal__form" id="profile-edit-form">
           <input
             class="modal__input"
             type="text"
@@ -65,20 +65,19 @@
         </form>
       </div>
     </div>
-    <!-- Add card modal, get the following from figma -->
-    <div class="modal" id="profile-edit-modal">
+    <!-- Gallery Edit modal -->
+    <div class="modal" id="gallery-add-modal">
       <div class="modal__container">
-        <button class="modal__close" id="profile-edit-close"></button>
+        <button class="modal__close" id="gallery-edit-close"></button>
         <p class="modal__heading">New Place</p>
-        <!-- the following form changed an id=edit-profile=form, added and changed here per video -->
-        <form class="modal__form" id="add-card-form">
+        <form class="modal__form" id="gallery-add-form">
           <!-- the video has two classes for the inputs modal__input and modal__input_type_title -->
           <!-- check the consistency with naming of each property for BEM -->
           <input
             class="modal__input modal__input_type_title"
             type="text"
             name="title"
-            id="profile-title-input"
+            id="gallery-title-input"
             placeholder="Title"
             required
           />
@@ -86,7 +85,7 @@
             class="modal__input modal__input_type_url"
             type="text"
             name="url"
-            id="profile-description-input"
+            id="gallery-description-input"
             placeholder="Image URL"
             required
           />
