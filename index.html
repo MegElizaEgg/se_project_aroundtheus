@@ -39,6 +39,7 @@
       </main>
       <footer class="footer page__section">&copy; 2024 Around The U.S.</footer>
     </div>
+    <!-- Edit modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" id="profile-edit-close"></button>
@@ -58,6 +59,35 @@
             name="profile-description"
             id="profile-description-input"
             placeholder="Description"
+            required
+          />
+          <button type="submit" class="modal__button">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- Add card modal, get the following from figma -->
+    <div class="modal" id="profile-edit-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="profile-edit-close"></button>
+        <p class="modal__heading">New Place</p>
+        <!-- the following form changed an id=edit-profile=form, added and changed here per video -->
+        <form class="modal__form" id="add-card-form">
+          <!-- the video has two classes for the inputs modal__input and modal__input_type_title -->
+          <!-- check the consistency with naming of each property for BEM -->
+          <input
+            class="modal__input modal__input_type_title"
+            type="text"
+            name="title"
+            id="profile-title-input"
+            placeholder="Title"
+            required
+          />
+          <input
+            class="modal__input modal__input_type_url"
+            type="text"
+            name="url"
+            id="profile-description-input"
+            placeholder="Image URL"
             required
           />
           <button type="submit" class="modal__button">Save</button>

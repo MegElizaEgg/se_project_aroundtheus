@@ -71,6 +71,11 @@ function handleProfileEditSubmit(evt) {
 }
 
 /* Event Listeners */
+//* ! 2/7 create template for adding a card?
+//* !2.1 clone modal for name? and add to it per Figma - HTML, CSS & JS
+
+//* !2.2 eventlistener 'click' to open, and 2.3 to close
+
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -81,6 +86,7 @@ profileEditClose.addEventListener("click", closePopup);
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
+//* ! 1/7 rewrite the for loop with a forEach loop - already done?
 initialCards.forEach((galleryCardData) => {
   const galleryCardElement = getCardElement(galleryCardData);
   galleryEl.append(galleryCardElement);
