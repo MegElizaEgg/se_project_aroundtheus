@@ -76,7 +76,7 @@
           <input
             class="modal__input modal__input_type_title"
             type="text"
-            name="title"
+            name="gallery-title"
             id="gallery-title-input"
             placeholder="Title"
             required
@@ -85,7 +85,7 @@
             class="modal__input modal__input_type_url"
             type="text"
             name="url"
-            id="gallery-description-input"
+            id="gallery-url-input"
             placeholder="Image URL"
             required
           />
@@ -99,7 +99,10 @@
         <img src="" alt="" class="gallery__image" />
         <div class="gallery__description">
           <h2 class="gallery__text"></h2>
-          <button class="gallery__like-button"></button>
+          <button
+            class="gallery__like-button"
+            id="gallery-like-button"
+          ></button>
         </div>
       </div>
     </template>

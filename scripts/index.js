@@ -44,10 +44,13 @@ const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 
 //Form data
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
+const profileTitleInput = profileEditForm.querySelector("#profile-title-input");
+const profileDescriptionInput = profileEditForm.querySelector(
   "#profile-description-input"
 );
+
+const galleryTitleInput = galleryEditForm.querySelector("#gallery-title-input");
+const galleryUrlInput = galleryEditForm.querySelector("#gallery-url-input");
 
 /* Functions */
 function openModal(modal) {
@@ -57,17 +60,31 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
+function renderCard(cardData, wrapper) {
+  const galleryCardElement = getCardElement(cardData);
+  wrapper.prepend(galleryCardElement);
+}
+
 function getCardElement(galleryCardData) {
   const galleryCardElement = galleryCardTemplate.cloneNode(true);
-
   const galleryCardImageEl =
     galleryCardElement.querySelector(".gallery__image");
   const galleryCardTextEl = galleryCardElement.querySelector(".gallery__text");
+  const likeButton = galleryCardElement.querySelector(".gallery__like-button");
+  // find delete button
+
+  // add the event listener to the delete button
+  //galleryCardElement.remove(); when the button gets clicked
+
+  // add click listener to the galleryCardImageEl
+  // openModal with previewImageModal
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("gallery__like-button_active");
+  });
 
   galleryCardImageEl.src = galleryCardData.link;
-
   galleryCardImageEl.alt = galleryCardData.name;
-
   galleryCardTextEl.textContent = galleryCardData.name;
 
   return galleryCardElement;
@@ -81,6 +98,15 @@ function handleProfileEditSubmit(evt) {
   closePopup();
 }
 
+function handleGalleryEditSubmit(evt) {
+  evt.preventDefault();
+  const name = galleryTitleInput.value;
+  const link = galleryUrlInput.value;
+  renderCard({ name, link }, galleryEl);
+  closeModal(galleryEditModal);
+}
+
+// Form Listeners
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -96,9 +122,8 @@ galleryAddButton.addEventListener("click", () => openModal(galleryEditModal));
 galleryModalCloseButton.addEventListener("click", () =>
   closeModal(galleryEditModal)
 );
-galleryEditForm.addEventListener("submit", handleProfileEditSubmit);
+galleryEditForm.addEventListener("submit", handleGalleryEditSubmit);
 
-initialCards.forEach((galleryCardData) => {
-  const galleryCardElement = getCardElement(galleryCardData);
-  galleryEl.append(galleryCardElement);
-});
+initialCards.forEach((galleryCardData) =>
+  renderCard(galleryCardData, galleryEl)
+);
