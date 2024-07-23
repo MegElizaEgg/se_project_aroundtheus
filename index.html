@@ -69,7 +69,7 @@
     <div class="modal" id="gallery-add-modal">
       <div class="modal__container">
         <button class="modal__close" id="gallery-edit-close"></button>
-        <p class="modal__heading">New Place</p>
+        <p class="modal__heading">New place</p>
         <form class="modal__form" id="gallery-add-form">
           <!-- the video has two classes for the inputs modal__input and modal__input_type_title -->
           <!-- check the consistency with naming of each property for BEM -->
@@ -86,17 +86,30 @@
             type="text"
             name="url"
             id="gallery-url-input"
-            placeholder="Image URL"
+            placeholder="Image link"
             required
           />
-          <button type="submit" class="modal__button">Save</button>
+          <button type="submit" class="modal__button">Create</button>
         </form>
+      </div>
+    </div>
+
+    <!-- Preview Image Modal -->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__container">
+        <button class="modal__close" id="preview-image-close"></button>
+        <img src="" alt="" class="preview__image" />
+        <p class="preview__text"></p>
       </div>
     </div>
 
     <template id="gallery-card-template">
       <div class="gallery__card">
         <img src="" alt="" class="gallery__image" />
+        <button
+          class="gallery__delete-button"
+          id="gallery-delete-button"
+        ></button>
         <div class="gallery__description">
           <h2 class="gallery__text"></h2>
           <button

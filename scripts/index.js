@@ -29,6 +29,7 @@ const initialCards = [
 //Wrapppers
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const galleryEditModal = document.querySelector("#gallery-add-modal");
+const previewImageModal = document.querySelector("#preview-image-modal");
 const galleryEl = document.querySelector("#gallery-cards");
 const galleryCardTemplate = document.querySelector("#gallery-card-template")
   .content.firstElementChild;
@@ -40,6 +41,8 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 const profileModalCloseButton = profileEditModal.querySelector(".modal__close");
 const galleryAddButton = document.querySelector("#gallery-add-button");
 const galleryModalCloseButton = galleryEditModal.querySelector(".modal__close");
+const previewModalCloseButton =
+  previewImageModal.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 
@@ -71,13 +74,23 @@ function getCardElement(galleryCardData) {
     galleryCardElement.querySelector(".gallery__image");
   const galleryCardTextEl = galleryCardElement.querySelector(".gallery__text");
   const likeButton = galleryCardElement.querySelector(".gallery__like-button");
-  // find delete button
+  const deleteButton = galleryCardElement.querySelector(
+    ".gallery__delete-button"
+  );
 
-  // add the event listener to the delete button
-  //galleryCardElement.remove(); when the button gets clicked
+  galleryCardImageEl.addEventListener("click", () => {
+    openModal(previewImageModal);
+    const previewImage = previewImageModal.querySelector(".preview__image");
+    const previewText = previewImageModal.querySelector(".preview__text");
 
-  // add click listener to the galleryCardImageEl
-  // openModal with previewImageModal
+    previewImage.src = galleryCardData.link;
+    previewImage.alt = galleryCardData.name;
+    previewText.textContent = galleryCardData.name;
+  });
+
+  deleteButton.addEventListener("click", () => {
+    galleryCardElement.remove();
+  });
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("gallery__like-button_active");
@@ -106,7 +119,9 @@ function handleGalleryEditSubmit(evt) {
   closeModal(galleryEditModal);
 }
 
-// Form Listeners
+/* Form Listeners */
+
+// Edit profile button
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -119,11 +134,20 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 // Add new card button
 galleryAddButton.addEventListener("click", () => openModal(galleryEditModal));
+
 galleryModalCloseButton.addEventListener("click", () =>
   closeModal(galleryEditModal)
 );
+
 galleryEditForm.addEventListener("submit", handleGalleryEditSubmit);
 
 initialCards.forEach((galleryCardData) =>
   renderCard(galleryCardData, galleryEl)
+);
+
+// Preview image modal
+/* galleryImageEl.addEventListener("click", () => openModal(previewImageModal)); */
+
+previewModalCloseButton.addEventListener("click", () =>
+  closeModal(previewImageModal)
 );

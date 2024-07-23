@@ -28,6 +28,7 @@
   border-radius: 10px;
   overflow: hidden;
   justify-content: center;
+  position: relative;
 }
 
 .gallery__image {
@@ -53,6 +54,23 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.gallery__delete-button {
+  position: absolute;
+  padding: 0;
+  top: 18px;
+  right: 15px;
+  background: transparent url(../images/delete.svg) center no-repeat;
+  width: 18px;
+  height: 19.3px;
+  border: none;
+  transition: opacity 1s ease;
+}
+
+.gallery__delete-button:hover {
+  opacity: 60%;
+  cursor: pointer;
 }
 
 .gallery__like-button {
