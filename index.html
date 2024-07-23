@@ -39,6 +39,7 @@
       </main>
       <footer class="footer page__section">&copy; 2024 Around The U.S.</footer>
     </div>
+
     <!-- Profile Edit modal -->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
@@ -65,6 +66,7 @@
         </form>
       </div>
     </div>
+
     <!-- Gallery Edit modal -->
     <div class="modal" id="gallery-add-modal">
       <div class="modal__container">
@@ -96,13 +98,16 @@
 
     <!-- Preview Image Modal -->
     <div class="modal" id="preview-image-modal">
-      <div class="modal__container">
+      <div class="modal__container modal__container_type_preview">
         <button class="modal__close" id="preview-image-close"></button>
-        <img src="" alt="" class="preview__image" />
-        <p class="preview__text"></p>
+        <img src="" alt="" class="modal__image" />
+        <p class="modal__text"></p>
       </div>
     </div>
 
+    <!-- <div class="modal__container .modal__container_type_preview">-->
+
+    <!-- Gallery Card Template -->
     <template id="gallery-card-template">
       <div class="gallery__card">
         <img src="" alt="" class="gallery__image" />

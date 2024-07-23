@@ -80,8 +80,8 @@ function getCardElement(galleryCardData) {
 
   galleryCardImageEl.addEventListener("click", () => {
     openModal(previewImageModal);
-    const previewImage = previewImageModal.querySelector(".preview__image");
-    const previewText = previewImageModal.querySelector(".preview__text");
+    const previewImage = previewImageModal.querySelector(".modal__image");
+    const previewText = previewImageModal.querySelector(".modal__text");
 
     previewImage.src = galleryCardData.link;
     previewImage.alt = galleryCardData.name;
