@@ -73,10 +73,8 @@
         <button class="modal__close" id="gallery-edit-close"></button>
         <p class="modal__heading">New place</p>
         <form class="modal__form" id="gallery-add-form">
-          <!-- the video has two classes for the inputs modal__input and modal__input_type_title -->
-          <!-- check the consistency with naming of each property for BEM -->
           <input
-            class="modal__input modal__input_type_title"
+            class="modal__input"
             type="text"
             name="gallery-title"
             id="gallery-title-input"
@@ -84,7 +82,7 @@
             required
           />
           <input
-            class="modal__input modal__input_type_url"
+            class="modal__input"
             type="text"
             name="url"
             id="gallery-url-input"
@@ -104,8 +102,6 @@
         <p class="modal__text"></p>
       </div>
     </div>
-
-    <!-- <div class="modal__container .modal__container_type_preview">-->
 
     <!-- Gallery Card Template -->
     <template id="gallery-card-template">
