@@ -111,7 +111,16 @@
   margin-bottom: 30px;
 }
 
-.modal__button {
+.modal__input-error {
+  border-bottom-color: #ff0000;
+  opacity: 0;
+}
+
+.modal__input-error_active {
+  opacity: 1;
+}
+
+.modal__submit {
   width: 100%;
   padding: 0;
   font-size: 18px;
@@ -125,7 +134,14 @@
   margin-top: 18px;
 }
 
-.modal__button:hover {
+.modal__submit_inactive {
+  color: black;
+  opacity: 80%;
+  background-color: #fff;
+  border-color: #000000cc;
+}
+
+.modal__submit:hover {
   opacity: 80%;
   cursor: pointer;
 }
@@ -143,7 +159,7 @@
   .modal__heading {
     font-size: 18px;
   }
-  .modal__button {
+  .modal__submit {
     font-size: 14px;
     height: 46px;
     margin-top: 15px;
