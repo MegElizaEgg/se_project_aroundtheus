@@ -56,7 +56,10 @@
             minlength="2"
             maxlength="40"
           />
-          <span class="profile-title-input-error modal__input-error"></span>
+          <span
+            class="modal__input_type_error"
+            id="profile-title-input-error"
+          ></span>
 
           <input
             class="modal__input"
@@ -69,7 +72,8 @@
             maxlength="200"
           />
           <span
-            class="profile-description-input-error modal__input-error"
+            class="modal__input_type_error"
+            id="profile-description-input-error"
           ></span>
           <button type="submit" class="modal__submit">Save</button>
         </form>
@@ -89,8 +93,13 @@
             id="gallery-title-input"
             placeholder="Title"
             required
+            minlength="2"
+            maxlength="30"
           />
-          <span class="gallery-title-input-error modal__input-error"></span>
+          <span
+            class="modal__input_type_error"
+            id="gallery-title-input-error"
+          ></span>
           <input
             class="modal__input"
             type="url"
@@ -99,7 +108,10 @@
             placeholder="Image URL"
             required
           />
-          <span class="gallery-url-input-error modal__input-error"></span>
+          <span
+            class="modal__input_type_error"
+            id="gallery-url-input-error"
+          ></span>
           <button type="submit" class="modal__submit">Save</button>
         </form>
       </div>

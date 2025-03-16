@@ -91,7 +91,7 @@
   font-weight: 900;
   line-height: 1.2;
   color: #000;
-  margin: 0 0 54px 0;
+  margin: 0 0 41px 0;
   transition: font-size 1s ease;
 }
 
@@ -101,22 +101,28 @@
 }
 
 .modal__input {
-  border: hidden;
+  border-color: transparent;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 14px;
   line-height: 1.2;
   color: #000;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding-bottom: 13px;
-  margin-bottom: 30px;
+  margin-top: 13px;
 }
 
-.modal__input-error {
-  border-bottom-color: #ff0000;
-  opacity: 0;
+.modal__input:focus {
+  outline-offset: 2px;
 }
 
-.modal__input-error_active {
+.modal__input_type_error {
+  padding-top: 5px;
+}
+
+.modal__input_type_error_visible {
+  color: red;
+  font-size: 12px;
+  border-top: 1px solid #ff0000;
   opacity: 1;
 }
 
@@ -131,7 +137,7 @@
   height: 50px;
   transition: font-size 1s ease;
   transition: opacity 1s ease;
-  margin-top: 18px;
+  margin-top: 48px;
 }
 
 .modal__submit_inactive {
