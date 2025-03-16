@@ -10,20 +10,48 @@ const hideInputError = (formEl, inputEl, { errorClass }) => {
   errorMessageEl.classList.remove(errorClass);
 };
 
-function checkInputValidity(formEl, inputEl, options) {
+const checkInputValidity = (formEl, inputEl, options) => {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, options);
-  } else {
-    hideInputError(formEl, inputEl, options);
+    return showInputError(formEl, inputEl, options);
   }
-}
+  hideInputError(formEl, inputEl, options);
+};
+
+const hasInvalidInput = (inputList) => {
+  return !inputList.every((inputEl) => inputEl.validity.valid);
+};
+
+// should have two more functions, to consolidate the code inside toggleButtonState
+// disableButton - add the class that has disabled attribute
+// enableButton - remove it as well
+
+const toggleButtonState = (inputList, submitBtn, { inactiveButtonClass }) => {
+  //if there's one invalid input, disable the button
+  //else, make sure the button is enabled
+
+  //
+
+  if (hasInvalidInput(inputList)) {
+    submitBtn.classList.add(inactiveButtonClass);
+    submitBtn.disabled = true;
+    return;
+  }
+  submitBtn.classList.remove(inactiveButtonClass);
+  submitBtn.disabled = false;
+};
+// check this in notes - added disabled to the submit button on profile edit modal, and added a secondary css class; doesn't sound like notes
 
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
-  const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  inputEls.forEach((inputEl) => {
+  const { submitButtonSelector } = options;
+  const { inactiveButtonClass } = options;
+  const inputList = [...formEl.querySelectorAll(inputSelector)];
+  const submitBtn = formEl.querySelector(submitButtonSelector);
+  toggleButtonState(inputList, submitBtn, { inactiveButtonClass });
+  inputList.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, options);
+      toggleButtonState(inputList, submitBtn, { inactiveButtonClass });
     });
   });
 }
@@ -44,8 +72,8 @@ const enableValidation = (options) => {
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
+  submitButtonSelector: ".modal__submit",
+  inactiveButtonClass: "modal__submit_inactive",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__input_type_error_visible",
 };
