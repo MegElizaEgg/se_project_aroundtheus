@@ -21,28 +21,28 @@ const hasInvalidInput = (inputList) => {
   return !inputList.every((inputEl) => inputEl.validity.valid);
 };
 
-// should have two more functions, to consolidate the code inside toggleButtonState
-// disableButton - add the class that has disabled attribute
-// enableButton - remove it as well
-
-const toggleButtonState = (inputList, submitBtn, { inactiveButtonClass }) => {
-  //if there's one invalid input, disable the button
-  //else, make sure the button is enabled
-
-  //
-
+function disableButton(inputList, submitBtn, inactiveButtonClass) {
   if (hasInvalidInput(inputList)) {
     submitBtn.classList.add(inactiveButtonClass);
     submitBtn.disabled = true;
     return;
   }
-  submitBtn.classList.remove(inactiveButtonClass);
-  submitBtn.disabled = false;
-};
-// check this in notes - added disabled to the submit button on profile edit modal, and added a secondary css class; doesn't sound like notes
+}
 
-// after ADDING NEW CARD and REOPENING gallery edit modal, user can create an empty card.
-// (values of input fields reset on this modal) - in response to this: disable save button/ & add corresponding class
+function enableButton(inputList, submitBtn, inactiveButtonClass) {
+  if (!hasInvalidInput([...inputList])) {
+    submitBtn.classList.remove(inactiveButtonClass);
+    submitBtn.disabled = false;
+  }
+}
+
+const toggleButtonState = (inputList, submitBtn, { inactiveButtonClass }) => {
+  if (hasInvalidInput(inputList)) {
+    disableButton(inputList, submitBtn, inactiveButtonClass);
+    return;
+  }
+  enableButton(inputList, submitBtn, inactiveButtonClass);
+};
 
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
