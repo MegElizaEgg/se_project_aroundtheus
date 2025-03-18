@@ -41,6 +41,9 @@ const toggleButtonState = (inputList, submitBtn, { inactiveButtonClass }) => {
 };
 // check this in notes - added disabled to the submit button on profile edit modal, and added a secondary css class; doesn't sound like notes
 
+// after ADDING NEW CARD and REOPENING gallery edit modal, user can create an empty card.
+// (values of input fields reset on this modal) - in response to this: disable save button/ & add corresponding class
+
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
   const { submitButtonSelector } = options;

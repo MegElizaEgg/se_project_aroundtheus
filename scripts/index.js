@@ -58,9 +58,14 @@ const galleryUrlInput = galleryEditForm.querySelector("#gallery-url-input");
 // Modals
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keyup", isEscEvent);
+  document.addEventListener("click", isClickOutsideEvent);
 }
+
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", isEscEvent);
+  document.addEventListener("click", isClickOutsideEvent);
 }
 
 // Gallery Cards
@@ -116,6 +121,23 @@ function handleGalleryEditSubmit(evt) {
   renderCard({ name, link }, galleryEl);
   closeModal(galleryEditModal);
   evt.target.reset();
+}
+
+function isEscEvent(evt) {
+  if (evt.key === "Escape") {
+    // check if the key pressed is the escape key
+    const activeModal = document.querySelector(".modal_opened"); // select the currently opened modal
+    closeModal(activeModal);
+    // added listener to the opened modal
+    // removed listener from the modal when it closes
+  }
+}
+
+function isClickOutsideEvent(evt) {
+  if (evt.target.classList.contains("modal")) {
+    //check if the clicked element is the modal itself, overlay only
+    closeModal(evt.target); //close the modal (what's the evt.target for?)
+  }
 }
 
 /* Form Listeners */
