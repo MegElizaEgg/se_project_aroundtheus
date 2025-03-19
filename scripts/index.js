@@ -126,6 +126,11 @@ function handleGalleryEditSubmit(evt) {
   evt.target.reset();
   galSubmitBtn.disabled = true;
   galSubmitBtn.classList.add(config.inactiveButtonClass);
+  // disableButton(
+  //  [galleryTitleInput, galleryUrlInput],
+  //  evt.submitter,
+  //  config.inactiveButtonClass
+  // );
 }
 
 function isEscEvent(evt) {
