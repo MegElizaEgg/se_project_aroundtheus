@@ -120,17 +120,14 @@ function handleGalleryEditSubmit(evt) {
   evt.preventDefault();
   const name = galleryTitleInput.value;
   const link = galleryUrlInput.value;
-  const galSubmitBtn = document.querySelector("#gallery-modal-submit");
   renderCard({ name, link }, galleryEl);
   closeModal(galleryEditModal);
   evt.target.reset();
-  galSubmitBtn.disabled = true;
-  galSubmitBtn.classList.add(config.inactiveButtonClass);
-  // disableButton(
-  //  [galleryTitleInput, galleryUrlInput],
-  //  evt.submitter,
-  //  config.inactiveButtonClass
-  // );
+  disableButton(
+    [galleryTitleInput, galleryUrlInput],
+    evt.submitter,
+    config.inactiveButtonClass
+  );
 }
 
 function isEscEvent(evt) {
