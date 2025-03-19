@@ -55,6 +55,7 @@ const galleryTitleInput = galleryEditForm.querySelector("#gallery-title-input");
 const galleryUrlInput = galleryEditForm.querySelector("#gallery-url-input");
 
 /* Functions */
+
 // Modals
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -107,6 +108,9 @@ function getCardElement(galleryCardData) {
 }
 
 /* Event Handlers */
+
+import { toggleButtonState } from "./validation";
+
 function handleProfileEditSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
@@ -137,6 +141,12 @@ function isClickOutsideEvent(evt) {
 }
 
 /* Form Listeners */
+
+inputs.forEach((inputList) => {
+  input.addEventListener("input", () => {
+    toggleButtonState(inputList, submitBtn, { inactiveButtonClass });
+  });
+});
 
 // Profile
 profileEditButton.addEventListener("click", () => {
