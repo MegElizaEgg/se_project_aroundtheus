@@ -109,8 +109,6 @@ function getCardElement(galleryCardData) {
 
 /* Event Handlers */
 
-import { toggleButtonState } from "./validation";
-
 function handleProfileEditSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
@@ -122,9 +120,12 @@ function handleGalleryEditSubmit(evt) {
   evt.preventDefault();
   const name = galleryTitleInput.value;
   const link = galleryUrlInput.value;
+  const galSubmitBtn = document.querySelector("#gallery-modal-submit");
   renderCard({ name, link }, galleryEl);
   closeModal(galleryEditModal);
   evt.target.reset();
+  galSubmitBtn.disabled = true;
+  galSubmitBtn.classList.add(config.inactiveButtonClass);
 }
 
 function isEscEvent(evt) {
@@ -141,13 +142,6 @@ function isClickOutsideEvent(evt) {
 }
 
 /* Form Listeners */
-
-inputs.forEach((inputList) => {
-  input.addEventListener("input", () => {
-    toggleButtonState(inputList, submitBtn, { inactiveButtonClass });
-  });
-});
-
 // Profile
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;

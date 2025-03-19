@@ -36,11 +36,7 @@ function enableButton(inputList, submitBtn, inactiveButtonClass) {
   }
 }
 
-export const toggleButtonState = (
-  inputList,
-  submitBtn,
-  { inactiveButtonClass }
-) => {
+const toggleButtonState = (inputList, submitBtn, { inactiveButtonClass }) => {
   if (hasInvalidInput(inputList)) {
     disableButton(inputList, submitBtn, inactiveButtonClass);
     return;
@@ -52,11 +48,11 @@ function setEventListeners(formEl, options) {
   const { inputSelector, inactiveButtonClass, submitButtonSelector } = options;
   const inputList = [...formEl.querySelectorAll(inputSelector)];
   const submitBtn = formEl.querySelector(submitButtonSelector);
-  toggleButtonState(inputList, submitBtn, { inactiveButtonClass }); //submit inactive when modal opens
+  toggleButtonState(inputList, submitBtn, { inactiveButtonClass });
   inputList.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, options);
-      toggleButtonState(inputList, submitBtn, { inactiveButtonClass }); //submit inactive after inputs unless they are valid
+      toggleButtonState(inputList, submitBtn, { inactiveButtonClass });
     });
   });
 }

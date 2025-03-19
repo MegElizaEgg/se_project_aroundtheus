@@ -115,12 +115,6 @@
   width: 100%;
 }
 
-.modal__input:focus {
-  /* border-color: rgb(25, 135, 242, 0.5); */
-  /* outline-offset: 2px; */
-}
-/*focus nonexistent; color change is not working*/
-
 .modal__error {
   position: absolute;
   top: 100%;
