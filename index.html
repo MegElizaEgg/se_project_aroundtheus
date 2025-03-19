@@ -33,7 +33,7 @@
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="gallery__add-button" id="gallery-add-button"></button>
+          <button class="profile__add-button" id="gallery-add-button"></button>
         </section>
         <section class="gallery page__section" id="gallery-cards"></section>
       </main>
@@ -46,35 +46,36 @@
         <button class="modal__close" id="profile-edit-close"></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form" id="profile-edit-form" novalidate>
-          <input
-            class="modal__input"
-            type="text"
-            name="profile-title"
-            id="profile-title-input"
-            placeholder="Name"
-            required
-            minlength="2"
-            maxlength="40"
-          />
-          <span
-            class="modal__input_type_error"
-            id="profile-title-input-error"
-          ></span>
+          <label class="modal__label">
+            <input
+              class="modal__input"
+              type="text"
+              name="profile-title"
+              id="profile-title-input"
+              placeholder="Name"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="modal__error" id="profile-title-input-error"></span>
+          </label>
+          <label class="modal__label">
+            <input
+              class="modal__input"
+              type="text"
+              name="profile-description"
+              id="profile-description-input"
+              placeholder="Description"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
+          </label>
 
-          <input
-            class="modal__input"
-            type="text"
-            name="profile-description"
-            id="profile-description-input"
-            placeholder="Description"
-            required
-            minlength="2"
-            maxlength="200"
-          />
-          <span
-            class="modal__input_type_error"
-            id="profile-description-input-error"
-          ></span>
           <button
             type="submit"
             class="modal__submit modal__submit_inactive"
@@ -92,32 +93,31 @@
         <button class="modal__close" id="gallery-edit-close"></button>
         <p class="modal__heading">New place</p>
         <form class="modal__form" id="gallery-add-form" novalidate>
-          <input
-            class="modal__input"
-            type="text"
-            name="gallery-title"
-            id="gallery-title-input"
-            placeholder="Title"
-            required
-            minlength="2"
-            maxlength="30"
-          />
-          <span
-            class="modal__input_type_error"
-            id="gallery-title-input-error"
-          ></span>
-          <input
-            class="modal__input"
-            type="url"
-            name="url"
-            id="gallery-url-input"
-            placeholder="Image URL"
-            required
-          />
-          <span
-            class="modal__input_type_error"
-            id="gallery-url-input-error"
-          ></span>
+          <label class="modal__label">
+            <input
+              class="modal__input"
+              type="text"
+              name="gallery-title"
+              id="gallery-title-input"
+              placeholder="Title"
+              required
+              minlength="2"
+              maxlength="30"
+            />
+            <span class="modal__error" id="gallery-title-input-error"></span>
+          </label>
+          <label class="modal__label">
+            <input
+              class="modal__input"
+              type="url"
+              name="url"
+              id="gallery-url-input"
+              placeholder="Image URL"
+              required
+            />
+            <span class="modal__error" id="gallery-url-input-error"></span>
+          </label>
+
           <button type="submit" class="modal__submit">Save</button>
         </form>
       </div>

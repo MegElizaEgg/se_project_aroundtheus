@@ -67,10 +67,6 @@
   line-height: 1.2;
 }
 
-/* .modal__text::placeholder {
-  color: rgba(0, 0, 0, 0.2);
-} */
-
 .modal__close {
   border: none;
   background-color: transparent;
@@ -95,7 +91,7 @@
   font-weight: 900;
   line-height: 1.2;
   color: #000;
-  margin: 0 0 41px 0;
+  margin: 0 0 24px 0;
   transition: font-size 1s ease;
 }
 
@@ -104,28 +100,41 @@
   flex-direction: column;
 }
 
+.modal__label {
+  position: relative;
+  margin-top: 30px;
+}
+
 .modal__input {
   border-color: transparent;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 14px;
   line-height: 1.2;
   color: #000;
-  padding-bottom: 13px;
-  margin-top: 13px;
+  padding: 0 0 13px 0;
+  width: 100%;
 }
 
 .modal__input:focus {
-  outline-offset: 2px;
+  /* border-color: rgb(25, 135, 242, 0.5); */
+  /* outline-offset: 2px; */
 }
+/*focus nonexistent; color change is not working*/
 
-.modal__input_type_error {
+.modal__error {
+  position: absolute;
+  top: 100%;
+  width: 100%;
   padding-top: 5px;
-}
-
-.modal__input_type_error_visible {
+  margin-bottom: 13px;
   color: red;
   font-size: 12px;
   border-top: 1px solid #ff0000;
+  display: none;
+}
+
+.modal__error_visible {
+  display: block;
   opacity: 1;
 }
 
@@ -133,6 +142,7 @@
   width: 100%;
   padding: 0;
   font-size: 18px;
+  margin-top: 48px;
   line-height: 1.2;
   color: #fff;
   background-color: #000;
@@ -140,8 +150,8 @@
   height: 50px;
   transition: font-size 1s ease;
   transition: opacity 1s ease;
-  margin-top: 48px;
 }
+
 .modal__submit:hover {
   opacity: 80%;
   cursor: pointer;
@@ -170,11 +180,12 @@
   }
   .modal__heading {
     font-size: 18px;
+    margin: 0 0 46px 0;
   }
   .modal__submit {
     font-size: 14px;
     height: 46px;
-    margin-top: 15px;
+    margin-top: 46px;
   }
 }
 

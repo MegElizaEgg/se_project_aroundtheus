@@ -33,8 +33,8 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const galleryEl = document.querySelector("#gallery-cards");
 const galleryCardTemplate = document.querySelector("#gallery-card-template")
   .content.firstElementChild;
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const galleryEditForm = galleryEditModal.querySelector(".modal__form");
+const profileEditForm = document.forms["profile-edit-form"];
+const galleryEditForm = document.forms["gallery-add-form"];
 
 // Buttons and DOM Nodes
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -65,7 +65,7 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keyup", isEscEvent);
-  document.addEventListener("click", isClickOutsideEvent);
+  document.removeEventListener("click", isClickOutsideEvent);
 }
 
 // Gallery Cards
@@ -125,18 +125,14 @@ function handleGalleryEditSubmit(evt) {
 
 function isEscEvent(evt) {
   if (evt.key === "Escape") {
-    // check if the key pressed is the escape key
-    const activeModal = document.querySelector(".modal_opened"); // select the currently opened modal
+    const activeModal = document.querySelector(".modal_opened");
     closeModal(activeModal);
-    // added listener to the opened modal
-    // removed listener from the modal when it closes
   }
 }
 
 function isClickOutsideEvent(evt) {
   if (evt.target.classList.contains("modal")) {
-    //check if the clicked element is the modal itself, overlay only
-    closeModal(evt.target); //close the modal (what's the evt.target for?)
+    closeModal(evt.target);
   }
 }
 
