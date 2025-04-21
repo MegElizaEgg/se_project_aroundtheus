@@ -33,9 +33,12 @@
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" id="gallery-add-button"></button>
+          <button
+            class="profile__card-edit-button"
+            id="card-edit-button"
+          ></button>
         </section>
-        <section class="gallery page__section" id="gallery-cards"></section>
+        <section class="card page__section" id="card-section-wrapper"></section>
       </main>
       <footer class="footer page__section">&copy; 2024 Around The U.S.</footer>
     </div>
@@ -87,38 +90,38 @@
       </div>
     </div>
 
-    <!-- Gallery Edit modal -->
-    <div class="modal" id="gallery-add-modal">
+    <!-- (Gallery) New modal -->
+    <div class="modal" id="card-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="gallery-edit-close"></button>
+        <button class="modal__close" id="card-edit-close"></button>
         <p class="modal__heading">New place</p>
-        <form class="modal__form" id="gallery-add-form" novalidate>
+        <form class="modal__form" id="card-edit-form" novalidate>
           <label class="modal__label">
             <input
               class="modal__input"
               type="text"
-              name="gallery-title"
-              id="gallery-title-input"
+              name="card-title"
+              id="card-title-input"
               placeholder="Title"
               required
               minlength="2"
               maxlength="30"
             />
-            <span class="modal__error" id="gallery-title-input-error"></span>
+            <span class="modal__error" id="card-title-input-error"></span>
           </label>
           <label class="modal__label">
             <input
               class="modal__input"
               type="url"
               name="url"
-              id="gallery-url-input"
+              id="card-url-input"
               placeholder="Image URL"
               required
             />
-            <span class="modal__error" id="gallery-url-input-error"></span>
+            <span class="modal__error" id="card-url-input-error"></span>
           </label>
 
-          <button type="submit" class="modal__submit" id="gallery-modal-submit">
+          <button type="submit" class="modal__submit" id="card-modal-submit">
             Save
           </button>
         </form>
@@ -134,25 +137,33 @@
       </div>
     </div>
 
-    <!-- Gallery Card Template -->
-    <template id="gallery-card-template">
-      <div class="gallery__card">
-        <img src="" alt="" class="gallery__image" />
-        <button
-          class="gallery__delete-button"
-          id="gallery-delete-button"
-        ></button>
-        <div class="gallery__description">
-          <h2 class="gallery__text"></h2>
-          <button
-            class="gallery__like-button"
-            id="gallery-like-button"
-          ></button>
+    <!-- card Card Template -->
+    <template id="card-instance-template">
+      <div class="card__instance">
+        <img src="" alt="" class="card__image" />
+        <button class="card__delete-button" id="card-delete-button"></button>
+        <div class="card__description">
+          <h2 class="card__text"></h2>
+          <button class="card__like-button" id="card-like-button"></button>
         </div>
       </div>
     </template>
 
-    <script src="./scripts/validation.js"></script>
+    <!-- template markup from video
+     <template id="card-template">
+      learned about in sprint 5
+      <li class="card">
+        <img class="card__image" src="" alt=""/>
+        <button class="card__delete-button" type="button"></button>
+        Background, inline style
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button class="card__like-button" type="button"></button>
+        </div>
+      </li>
+    </template> -->
+
+    <!-- <script src="./scripts/validation.js"></script> -->
     <script src="./pages/index.js"></script>
   </body>
 </html>

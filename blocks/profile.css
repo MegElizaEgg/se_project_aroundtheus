@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 
-.profile__add-button {
+.profile__card-edit-button {
   background: transparent url(../images/add-icon.svg) center no-repeat;
   height: 50px;
   width: 150px;
@@ -73,7 +73,7 @@
   transition: opacity 1s ease;
 }
 
-.profile__add-button:hover {
+.profile__card-edit-button:hover {
   opacity: 60%;
   cursor: pointer;
 }
@@ -87,7 +87,7 @@
     font-size: calc(18px * 0.7);
   }
 
-  .profile__add-button {
+  .profile__card-edit-button {
     width: 50px;
   }
 }
@@ -119,7 +119,7 @@
     max-width: 282px;
   }
 
-  .profile__add-button {
+  .profile__card-edit-button {
     margin-top: 36px;
     width: 100%;
     background-size: 16px;

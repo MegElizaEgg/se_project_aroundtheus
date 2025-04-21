@@ -25,20 +25,28 @@ const initialCards = [
   },
 ];
 
+// const cardData {
+//   name: "Yosemite Valley",
+//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+// }
+
+// const card = new Card(cardData);
+
 /* Elements */
 //Wrapppers
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const galleryEditModal = document.querySelector("#gallery-add-modal");
+
 const previewImageModal = document.querySelector("#preview-image-modal");
-const galleryEl = document.querySelector("#gallery-cards");
-const galleryCardTemplate = document.querySelector("#gallery-card-template")
-  .content.firstElementChild;
+const profileEditModal = document.querySelector("#profile-edit-modal");
+const cardEditModal = document.querySelector("#card-edit-modal");
 const profileEditForm = document.forms["profile-edit-form"];
-const galleryEditForm = document.forms["gallery-add-form"];
+const cardEditForm = document.forms["card-edit-form"];
+const cardEl = document.querySelector("#card-section-wrapper");
+const cardTemplate = document.querySelector("#card-instance-template").content
+  .firstElementChild;
 
 // Buttons and DOM Nodes
 const profileEditButton = document.querySelector("#profile-edit-button");
-const galleryAddButton = document.querySelector("#gallery-add-button");
+const cardEditButton = document.querySelector("#card-edit-button");
 const closeButtons = document.querySelectorAll(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
@@ -51,8 +59,8 @@ const profileDescriptionInput = profileEditForm.querySelector(
   "#profile-description-input"
 );
 
-const galleryTitleInput = galleryEditForm.querySelector("#gallery-title-input");
-const galleryUrlInput = galleryEditForm.querySelector("#gallery-url-input");
+const cardTitleInput = cardEditForm.querySelector("#card-title-input");
+const cardUrlInput = cardEditForm.querySelector("#card-url-input");
 
 /* Functions */
 
@@ -69,42 +77,40 @@ function closeModal(modal) {
   document.removeEventListener("click", isClickOutsideEvent);
 }
 
-// Gallery Cards
+// (Gallery) Cards
+
 function renderCard(cardData, wrapper) {
-  const galleryCardElement = getCardElement(cardData);
-  wrapper.prepend(galleryCardElement);
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
 }
 
-function getCardElement(galleryCardData) {
-  const galleryCardElement = galleryCardTemplate.cloneNode(true);
-  const galleryCardImageEl =
-    galleryCardElement.querySelector(".gallery__image");
-  const galleryCardTextEl = galleryCardElement.querySelector(".gallery__text");
-  const likeButton = galleryCardElement.querySelector(".gallery__like-button");
-  const deleteButton = galleryCardElement.querySelector(
-    ".gallery__delete-button"
-  );
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTextEl = cardElement.querySelector(".card__text");
+  const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  galleryCardImageEl.addEventListener("click", () => {
+  cardImageEl.addEventListener("click", () => {
     openModal(previewImageModal);
-    previewImage.src = galleryCardData.link;
-    previewImage.alt = galleryCardData.name;
-    previewText.textContent = galleryCardData.name;
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewText.textContent = cardData.name;
   });
 
   deleteButton.addEventListener("click", () => {
-    galleryCardElement.remove();
+    cardElement.remove();
   });
 
   likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("gallery__like-button_active");
+    likeButton.classList.toggle("card__like-button_active");
   });
 
-  galleryCardImageEl.src = galleryCardData.link;
-  galleryCardImageEl.alt = galleryCardData.name;
-  galleryCardTextEl.textContent = galleryCardData.name;
+  cardImageEl.src = cardData.link;
+  cardImageEl.alt = cardData.name;
+  cardTextEl.textContent = cardData.name;
 
-  return galleryCardElement;
+  return cardElement;
 }
 
 /* Event Handlers */
@@ -116,15 +122,15 @@ function handleProfileEditSubmit(evt) {
   closeModal(profileEditModal);
 }
 
-function handleGalleryEditSubmit(evt) {
+function handleCardEditSubmit(evt) {
   evt.preventDefault();
-  const name = galleryTitleInput.value;
-  const link = galleryUrlInput.value;
-  renderCard({ name, link }, galleryEl);
-  closeModal(galleryEditModal);
+  const name = cardTitleInput.value;
+  const link = cardUrlInput.value;
+  renderCard({ name, link }, cardEl);
+  closeModal(cardEditModal);
   evt.target.reset();
   disableButton(
-    [galleryTitleInput, galleryUrlInput],
+    [cardTitleInput, cardUrlInput],
     evt.submitter,
     config.inactiveButtonClass
   );
@@ -153,14 +159,10 @@ profileEditButton.addEventListener("click", () => {
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-// Gallery
-galleryAddButton.addEventListener("click", () => openModal(galleryEditModal));
-
-galleryEditForm.addEventListener("submit", handleGalleryEditSubmit);
-
-initialCards.forEach((galleryCardData) =>
-  renderCard(galleryCardData, galleryEl)
-);
+// (Gallery)
+cardEditButton.addEventListener("click", () => openModal(cardEditModal));
+cardEditForm.addEventListener("submit", handleCardEditSubmit);
+initialCards.forEach((cardData) => renderCard(cardData, cardEl));
 
 // All close buttons
 

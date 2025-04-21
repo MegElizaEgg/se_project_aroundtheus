@@ -1,0 +1,81 @@
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-gap: 20px 17px;
+  justify-content: center;
+  padding-top: 51px;
+}
+
+.card__instance {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  justify-content: center;
+  position: relative;
+}
+
+.card__image {
+  object-fit: cover;
+  object-position: 50% 50%;
+  height: 282px;
+}
+
+.card__description {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding: 25px 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__text {
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 215px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card__delete-button {
+  position: absolute;
+  padding: 0;
+  top: 18px;
+  right: 15px;
+  background: transparent url(../images/delete.svg) center no-repeat;
+  width: 18px;
+  height: 19.3px;
+  border: none;
+  transition: opacity 1s ease;
+}
+
+.card__delete-button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.card__like-button {
+  background: transparent url(../images/like-inactive.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  border: none;
+  transition: opacity 1s ease;
+}
+
+.card__like-button_active {
+  background-image: url(../images/like-active.svg);
+}
+
+.card__like-button:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 635px) {
+  .card {
+    padding-top: 36px;
+  }
+}
