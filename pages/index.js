@@ -1,4 +1,5 @@
 import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -27,9 +28,18 @@ const initialCards = [
   },
 ];
 
-/* Elements */
-//Wrapppers
+const validationSettings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__submit",
+  inactiveButtonClass: "modal__submit_inactive",
+  inputErrorClass: "modal__error",
+  errorClass: "modal__error_visible",
+};
 
+//SECTION - Elements
+
+//Wrapppers
 const previewImageModal = document.querySelector("#preview-image-modal");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const cardEditModal = document.querySelector("#card-edit-modal");
@@ -45,19 +55,43 @@ const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const previewImage = previewImageModal.querySelector(".modal__image");
 const previewText = previewImageModal.querySelector(".modal__text");
-
-//Form data
 const profileTitleInput = profileEditForm.querySelector("#profile-title-input");
 const profileDescriptionInput = profileEditForm.querySelector(
   "#profile-description-input"
 );
-
 const cardTitleInput = cardEditForm.querySelector("#card-title-input");
 const cardUrlInput = cardEditForm.querySelector("#card-url-input");
 
-/* Functions */
+//SECTION - Initializations & Form Listeners
 
-// Modals
+const profileFormValidator = new FormValidator(
+  validationSettings,
+  profileEditForm
+);
+const cardFormValidator = new FormValidator(validationSettings, cardEditForm);
+profileFormValidator.enableValidation();
+cardFormValidator.enableValidation();
+initialCards.forEach((data) => {
+  const card = new Card(data, "#card-instance-template", handleImageClick);
+  const cardElement = card.generateCard();
+  cardSection.append(cardElement);
+});
+profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+  editFormValidator.resetValidation();
+  openModal(profileEditModal);
+});
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+cardEditButton.addEventListener("click", () => openModal(cardEditModal));
+cardEditForm.addEventListener("submit", handleCardEditSubmit);
+closeButtons.forEach((button) => {
+  const modal = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(modal));
+});
+
+//SECTION - Event Handlers
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keyup", isEscEvent);
@@ -70,20 +104,12 @@ function closeModal(modal) {
   document.removeEventListener("click", isClickOutsideEvent);
 }
 
-// Cards
-initialCards.forEach((data) => {
-  const card = new Card(data, "#card-instance-template", handleImageClick);
-  const cardElement = card.generateCard();
-  cardSection.append(cardElement);
-});
-
-/* Event Handlers */
-
 function handleProfileEditSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
+  profileFormValidator.handleValidSubmit();
 }
 
 function handleCardEditSubmit(evt) {
@@ -99,18 +125,11 @@ function handleCardEditSubmit(evt) {
   cardSection.prepend(cardElement);
   closeModal(cardEditModal);
   evt.target.reset();
-  //FIXME - moved disable to validation.js, no longer connected per instructions
-  disableButton(
-    [cardTitleInput, cardUrlInput],
-    evt.submitter,
-    config.inactiveButtonClass
-  );
 }
 
 function handleImageClick(cardElement) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTextEl = cardElement.querySelector(".card__text");
-
   openModal(previewImageModal);
   previewImage.src = cardImageEl.src;
   previewImage.alt = cardTextEl.textContent;
@@ -129,24 +148,3 @@ function isClickOutsideEvent(evt) {
     closeModal(evt.target);
   }
 }
-
-/* Form Listeners */
-// Profile
-profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  openModal(profileEditModal);
-});
-
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-
-// (Gallery)
-cardEditButton.addEventListener("click", () => openModal(cardEditModal));
-cardEditForm.addEventListener("submit", handleCardEditSubmit);
-
-// All close buttons
-
-closeButtons.forEach((button) => {
-  const modal = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(modal));
-});
