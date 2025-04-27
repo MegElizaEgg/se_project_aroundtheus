@@ -80,15 +80,18 @@ initialCards.forEach((data) => {
 
 // Listeners
 profileEditButton.addEventListener("click", () => {
-  profileFormValidator.resetValidation();
-  profileFormValidator._disableButton();
+  profileFormValidator.handleResetValidation(false);
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   openModal(profileEditModal);
 });
+
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+
 cardEditButton.addEventListener("click", () => openModal(cardEditModal));
+
 cardEditForm.addEventListener("submit", handleCardEditSubmit);
+
 closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
   button.addEventListener("click", () => closeModal(modal));
@@ -124,7 +127,6 @@ function handleProfileEditSubmit(evt) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
-  profileFormValidator.handleValidSubmit(false);
 }
 
 function handleCardEditSubmit(evt) {
@@ -139,7 +141,7 @@ function handleCardEditSubmit(evt) {
   const cardElement = card.generateCard();
   cardSection.prepend(cardElement);
   closeModal(cardEditModal);
-  cardFormValidator.handleValidSubmit(true);
+  cardFormValidator.handleResetValidation(true);
 }
 
 function handleEscClose(evt) {

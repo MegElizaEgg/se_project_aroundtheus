@@ -81,19 +81,16 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
-  resetValidation() {
+  // Handlers
+  // combined resetValidation and handleValidSubmit
+  handleResetValidation(shouldResetFields) {
+    this._disableButton();
     this._inputList.forEach((inputEl) => {
       this._hideInputError(inputEl);
     });
-  }
-
-  // Handlers
-  handleValidSubmit(shouldResetFields) {
-    this._disableButton();
     if (shouldResetFields === true) {
       this._inputList.forEach((inputEl) => {
         inputEl.value = "";
-        this.resetValidation();
       });
     }
   }

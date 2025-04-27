@@ -16,6 +16,8 @@ This began as the Sprint 3 Project for TripleTen Software Engineering Practicum,
 - Transitions
 - Media Queries
 
+![Media Query Settings](images/readme-resolutions.gif)
+
 ### JavaScript
 
 - Basic & Callback functions
@@ -26,21 +28,19 @@ This began as the Sprint 3 Project for TripleTen Software Engineering Practicum,
 - Custom Form Validation
 - OOP & Modular Classes
 
-![Media Query Settings](images/readme-resolutions.gif)
-
 ## Links
 
 **Design Specifications**
 
-- [Link to project 3 on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
-- [Link to project 4 on Figma](https://www.figma.com/design/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?node-id=7505-2&t=DrP94UpXd1HfbYvK-0)
-- [Link to project 5 on Figma](<https://www.figma.com/design/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?node-id=0-1&p=f&t=bEg0SRjyUwcqDETV-0>)
-- [Link to project 6 on Figma](https://www.figma.com/design/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?node-id=0-1&p=f&t=xgMAU5UTCCWWjenU-0)
+- [Project 3](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1) on Figma
+- [Project 4](https://www.figma.com/design/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?node-id=7505-2&t=DrP94UpXd1HfbYvK-0) on Figma
+- [Project 5](<https://www.figma.com/design/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?node-id=0-1&p=f&t=bEg0SRjyUwcqDETV-0>) on Figma
+- [Project 6](https://www.figma.com/design/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?node-id=0-1&p=f&t=xgMAU5UTCCWWjenU-0) on Figma
 
 **Active URL**
 
-- [Link to the project on GitHub Pages](https://MegElizaEgg.github.io/se_project_aroundtheus)
+- Hosted on [GitHub Pages](https://MegElizaEgg.github.io/se_project_aroundtheus)
 
 **Video Summary**
 
-- [Link to the video overview of Project 3 on Loom](https://www.loom.com/share/9ee070fd3a9947cfad956f9015340f21?sid=a3d1061a-a36e-452a-a3b1-80546ad17296)
+- Watch a video overview for Project 3 and the introduction of Media Queries, only on [Loom](https://www.loom.com/share/9ee070fd3a9947cfad956f9015340f21?sid=a3d1061a-a36e-452a-a3b1-80546ad17296).
