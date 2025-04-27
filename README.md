@@ -1,6 +1,6 @@
 # Software Engineering Project: Around The U.S.
 
-This began as the Sprint 3 Project for TripleTen Software Engineering Practicum, focused on adaptive web design and working with design layouts. It has been migrated for continued work in Sprints 4-6, which introduces the use of JavaScript. The elements should all display correctly on popular screen sizes, with 1280px given for the desktop view and 320px given for the mobile view. Transitions between these sizes are made to be smooth and readable. Additionally, there is functionality to edit the profile information, add new cards to the gallery, and 'like' separate cards or delete gallery posts. Finally, each modal popup is responsive to the edit and add buttons in profile section, with form validation required for submission.
+This began as the Sprint 3 Project for TripleTen Software Engineering Practicum, focused on adaptive web design and working with design layouts. It has been migrated for continued work in Sprints 4-7, which introduces the use of JavaScript. The elements should all display correctly on popular screen sizes, with 1280px given for the desktop view and 320px given for the mobile view. Transitions between these sizes are made to be smooth and readable. Additionally, there is functionality to edit the profile information, add new cards to the gallery, and 'like' separate cards or delete gallery posts. Finally, each modal popup is responsive to the edit and add buttons in profile section, with form validation required for submission.
 
 ## Programming Languages and Features
 
@@ -24,6 +24,7 @@ This began as the Sprint 3 Project for TripleTen Software Engineering Practicum,
 - Event listeners for 'Esc', 'Click', and 'Submit'
 - Semantically appropriate variable names
 - Custom Form Validation
+- OOP & Modular Classes
 
 ![Media Query Settings](images/readme-resolutions.gif)
 
