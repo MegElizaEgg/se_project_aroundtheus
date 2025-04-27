@@ -50,8 +50,6 @@ const cardSection = document.querySelector("#card-section-wrapper");
 // Buttons and DOM Nodes
 const profileEditButton = document.querySelector("#profile-edit-button");
 const cardEditButton = document.querySelector("#card-edit-button");
-// const profileSubmitButton = profileEditModal.querySelector(".modal__submit");
-// const cardSubmitButton = cardEditModal.querySelector(".modal__submit");
 const closeButtons = document.querySelectorAll(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
@@ -64,8 +62,9 @@ const profileDescriptionInput = profileEditForm.querySelector(
 const cardTitleInput = cardEditForm.querySelector("#card-title-input");
 const cardUrlInput = cardEditForm.querySelector("#card-url-input");
 
-//SECTION - Initializations & Form Listeners
+//SECTION - Setup
 
+// Initializations
 const profileFormValidator = new FormValidator(
   validationSettings,
   profileEditForm
@@ -74,10 +73,12 @@ const cardFormValidator = new FormValidator(validationSettings, cardEditForm);
 profileFormValidator.enableValidation();
 cardFormValidator.enableValidation();
 initialCards.forEach((data) => {
-  const card = new Card(data, "#card-instance-template", handleImageClick);
+  const card = new Card(data, "#card-instance-template", handlePreviewImage);
   const cardElement = card.generateCard();
   cardSection.append(cardElement);
 });
+
+// Listeners
 profileEditButton.addEventListener("click", () => {
   profileFormValidator.resetValidation();
   profileFormValidator._disableButton();
@@ -93,18 +94,29 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => closeModal(modal));
 });
 
-//SECTION - Event Handlers
+//SECTION - UI Functions
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("keyup", isEscEvent);
-  document.addEventListener("click", isClickOutsideEvent);
+  document.addEventListener("keyup", handleEscClose);
+  document.addEventListener("click", handleOverlayClose);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keyup", isEscEvent);
-  document.removeEventListener("click", isClickOutsideEvent);
+  document.removeEventListener("keyup", handleEscClose);
+  document.removeEventListener("click", handleOverlayClose);
+}
+
+//SECTION - Handlers
+
+function handlePreviewImage(cardElement) {
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTextEl = cardElement.querySelector(".card__text");
+  openModal(previewImageModal);
+  previewImage.src = cardImageEl.src;
+  previewImage.alt = cardTextEl.textContent;
+  previewText.textContent = cardTextEl.textContent;
 }
 
 function handleProfileEditSubmit(evt) {
@@ -122,32 +134,22 @@ function handleCardEditSubmit(evt) {
   const card = new Card(
     { name, link },
     "#card-instance-template",
-    handleImageClick
+    handlePreviewImage
   );
   const cardElement = card.generateCard();
   cardSection.prepend(cardElement);
   closeModal(cardEditModal);
   cardFormValidator.handleValidSubmit(true);
-  evt.target.reset();
 }
 
-function handleImageClick(cardElement) {
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTextEl = cardElement.querySelector(".card__text");
-  openModal(previewImageModal);
-  previewImage.src = cardImageEl.src;
-  previewImage.alt = cardTextEl.textContent;
-  previewText.textContent = cardTextEl.textContent;
-}
-
-function isEscEvent(evt) {
+function handleEscClose(evt) {
   if (evt.key === "Escape") {
     const activeModal = document.querySelector(".modal_opened");
     closeModal(activeModal);
   }
 }
 
-function isClickOutsideEvent(evt) {
+function handleOverlayClose(evt) {
   if (evt.target.classList.contains("modal")) {
     closeModal(evt.target);
   }

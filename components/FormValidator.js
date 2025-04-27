@@ -12,7 +12,9 @@ export default class FormValidator {
     this._submitBtn = this._formEl.querySelector(this._submitButtonSelector);
   }
 
-  //SECTION - Listeners
+  //SECTION - Private Methods
+
+  //Listeners
   _setEventListeners() {
     this._toggleButtonState();
 
@@ -24,7 +26,21 @@ export default class FormValidator {
     });
   }
 
-  //SECTION - Handlers
+  // UI Manipulation
+  _toggleButtonState() {
+    if (!this._hasValidInput(this._inputList)) {
+      this._disableButton();
+      return;
+    }
+    this._enableButton();
+  }
+
+  _checkInputValidity(inputEl) {
+    if (!inputEl.validity.valid) {
+      return this._showInputError(inputEl);
+    }
+    this._hideInputError(inputEl);
+  }
 
   _enableButton() {
     if (this._hasValidInput([...this._inputList])) {
@@ -50,27 +66,14 @@ export default class FormValidator {
     this._errorMessageEl.classList.remove(this._errorClass);
   }
 
-  _checkInputValidity(inputEl) {
-    if (!inputEl.validity.valid) {
-      return this._showInputError(inputEl);
-    }
-    this._hideInputError(inputEl);
-  }
-
+  // Conditions
   _hasValidInput() {
     return this._inputList.every((inputEl) => inputEl.validity.valid);
   }
 
-  _toggleButtonState() {
-    if (!this._hasValidInput(this._inputList)) {
-      this._disableButton();
-      return;
-    }
-    this._enableButton();
-  }
+  //SECTION - Public Methods
 
-  //SECTION - Public Methods for Validation
-
+  // DOM Manipulation
   enableValidation() {
     this._formEl.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -84,6 +87,7 @@ export default class FormValidator {
     });
   }
 
+  // Handlers
   handleValidSubmit(shouldResetFields) {
     this._disableButton();
     if (shouldResetFields === true) {
