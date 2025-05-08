@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Megan Elizabeth" />
     <title>Around the U.S</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+
     <link rel="shortcut icon" href="./favicon.ico" />
   </head>
   <body class="page">
@@ -13,7 +13,7 @@
       <header class="header">
         <img
           id="imageLogoPng"
-          src="./images/logo.png"
+          src="<%=require('.src/images/logo.svg')%>"
           alt="Around the U.S. logo"
           class="header__logo"
         />
@@ -22,7 +22,7 @@
         <section class="profile page__section">
           <img
             id="imageProfile"
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('.src/images/jacques-cousteau.jpg')%>"
             alt="Avatar"
             class="profile__image"
           />

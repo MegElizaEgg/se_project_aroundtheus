@@ -2,6 +2,13 @@
 //SECTION - Imports
 
 // Webpack
+import "../pages/index.css";
+
+// import each image? also declare each one as a constant?
+// const logoImage = document.getElementbyId("imageLogoPng");
+// const profileImage = document.getElementbyId("imageProfile");
+// logoImage.src = ?? (what you are importing from ex: ./images/steps.png)
+// profileImage.src = ??, see above
 
 // Classes
 import Card from "../components/Card.js";
