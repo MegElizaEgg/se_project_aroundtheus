@@ -1,6 +1,6 @@
 # Software Engineering Project: Around The U.S.
 
-This began as the Sprint 3 Project for TripleTen Software Engineering Practicum, focused on adaptive web design and working with design layouts. It has been migrated for continued work in Sprints 4-7, which introduces the use of JavaScript. The elements should all display correctly on popular screen sizes, with 1280px given for the desktop view and 320px given for the mobile view. Transitions between these sizes are made to be smooth and readable. Additionally, there is functionality to edit the profile information, add new cards to the gallery, and 'like' separate cards or delete gallery posts. Finally, each modal popup is responsive to the edit and add buttons in profile section, with form validation required for submission.
+This is a project for Sprints 3-8 in the TripleTen Software Engineering Practicum. The layout should show adaptive web design, and the elements should all display correctly on popular screen sizes: 1280px given for the desktop view and 320px given for the mobile view. Transitions between these sizes are made to be smooth and readable. Additionally, there is functionality to edit the profile information, add new cards to the gallery, and 'like' separate cards or delete gallery posts. Finally, each modal popup is responsive to the edit and add buttons in profile section, with form validation required for submission.
 
 ## Programming Languages and Features
 
@@ -36,6 +36,7 @@ This began as the Sprint 3 Project for TripleTen Software Engineering Practicum,
 - [Project 4](https://www.figma.com/design/EO5AaNCuzzFL7X5gSY7HwQ/Sprint-4_-Around-The-U.S.-_-desktop-%2B-mobile?node-id=7505-2&t=DrP94UpXd1HfbYvK-0) on Figma
 - [Project 5](<https://www.figma.com/design/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?node-id=0-1&p=f&t=bEg0SRjyUwcqDETV-0>) on Figma
 - [Project 6](https://www.figma.com/design/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?node-id=0-1&p=f&t=xgMAU5UTCCWWjenU-0) on Figma
+- Projects 7 & 8 are specific to JavaScript modules, without introduction of new functionality or design.
 
 **Active URL**
 

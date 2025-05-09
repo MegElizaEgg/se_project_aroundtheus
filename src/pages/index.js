@@ -1,14 +1,7 @@
-// video sections: import css, import all classes, create instances of classes, initialize all instances, all the rest
 //SECTION - Imports
 
 // Webpack
 import "../pages/index.css";
-
-// import each image? also declare each one as a constant?
-// const logoImage = document.getElementbyId("imageLogoPng");
-// const profileImage = document.getElementbyId("imageProfile");
-// logoImage.src = ?? (what you are importing from ex: ./images/steps.png)
-// profileImage.src = ??, see above
 
 // Classes
 import Card from "../components/Card.js";
@@ -19,26 +12,20 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 
 // Constants
-import { initialCards, validationSettings } from "../utils/constants.js";
-
-//SECTION - Elements
-// video suggestion: move all consts to the constants.js into an object?
-
-//Wrappers
-const profileEditForm = document.forms["profile-edit-form"];
-const cardEditForm = document.forms["card-edit-form"];
-
-// Buttons and DOM Nodes
-const profileEditButton = document.querySelector("#profile-edit-button");
-const cardEditButton = document.querySelector("#card-edit-button");
-const profileTitleInput = profileEditForm.querySelector("#profile-title-input");
-const profileDescriptionInput = profileEditForm.querySelector(
-  "#profile-description-input"
-);
+import {
+  initialCards,
+  validationSettings,
+  profileEditForm,
+  cardEditForm,
+  profileEditButton,
+  cardEditButton,
+  profileTitleInput,
+  profileDescriptionInput,
+} from "../utils/utils.js";
 
 //SECTION - Setup
 
-// Initializations
+// Instances
 const profileUser = new UserInfo({
   nameSelector: ".profile__title",
   jobSelector: ".profile__description",
@@ -59,19 +46,15 @@ const cardsList = new Section(
   },
   "#card-section-wrapper"
 );
-cardsList.renderItems();
 
 const profileFormValidator = new FormValidator(
   validationSettings,
   profileEditForm
 );
+
 const cardFormValidator = new FormValidator(validationSettings, cardEditForm);
-profileFormValidator.enableValidation();
-cardFormValidator.enableValidation();
 
 const previewImageModal = new PopupWithImage("#preview-image-modal");
-
-previewImageModal.setEventListeners();
 
 const profileEditModal = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
@@ -83,8 +66,6 @@ const profileEditModal = new PopupWithForm({
     profileEditModal.close();
   },
 });
-
-profileEditModal.setEventListeners();
 
 const cardEditModal = new PopupWithForm({
   popupSelector: "#card-edit-modal",
@@ -103,9 +84,17 @@ const cardEditModal = new PopupWithForm({
   },
 });
 
+// Initializations
+cardsList.renderItems();
+profileFormValidator.enableValidation();
+cardFormValidator.enableValidation();
+
+//SECTION - Listeners
+
+previewImageModal.setEventListeners();
+profileEditModal.setEventListeners();
 cardEditModal.setEventListeners();
 
-// Listeners
 profileEditButton.addEventListener("click", () => {
   profileFormValidator.handleResetValidation(false);
   ({

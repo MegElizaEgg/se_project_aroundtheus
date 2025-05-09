@@ -35,3 +35,19 @@ export const validationSettings = {
   inputErrorClass: "modal__error",
   errorClass: "modal__error_visible",
 };
+
+//SECTION - Variables
+
+//Wrappers
+export const profileEditForm = document.forms["profile-edit-form"];
+export const cardEditForm = document.forms["card-edit-form"];
+
+// Buttons and DOM Nodes
+export const profileEditButton = document.querySelector("#profile-edit-button");
+export const cardEditButton = document.querySelector("#card-edit-button");
+export const profileTitleInput = profileEditForm.querySelector(
+  "#profile-title-input"
+);
+export const profileDescriptionInput = profileEditForm.querySelector(
+  "#profile-description-input"
+);
