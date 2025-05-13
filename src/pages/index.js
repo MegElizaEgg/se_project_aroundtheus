@@ -31,28 +31,30 @@ const profileUser = new UserInfo({
   jobSelector: ".profile__description",
 });
 
+const renderCard = (item) => {
+  const card = new Card(item, "#card-instance-template", handlePreviewImage);
+  cardsList.addItem(card.generateCard());
+};
+
 const cardsList = new Section(
   {
     items: initialCards,
-    renderer: (item) => {
-      const card = new Card(
-        item,
-        "#card-instance-template",
-        handlePreviewImage
-      );
-      const cardElement = card.generateCard();
-      cardsList.addItem(cardElement);
-    },
+    renderer: renderCard,
   },
   "#card-section-wrapper"
 );
 
-const profileFormValidator = new FormValidator(
-  validationSettings,
-  profileEditForm
-);
+const formValidators = {};
 
-const cardFormValidator = new FormValidator(validationSettings, cardEditForm);
+const anyFormValidation = (settings) => {
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
+  formList.forEach((formEl) => {
+    const validator = new FormValidator(settings, formEl);
+    const formName = formEl.getAttribute("name");
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
 
 const previewImageModal = new PopupWithImage("#preview-image-modal");
 
@@ -70,24 +72,22 @@ const profileEditModal = new PopupWithForm({
 const cardEditModal = new PopupWithForm({
   popupSelector: "#card-edit-modal",
   handleFormSubmit: (formValues) => {
-    const card = new Card(
-      {
-        name: formValues.cardTitle,
-        link: formValues.imageUrl,
-      },
-      "#card-instance-template",
-      handlePreviewImage
+    renderCard({
+      name: formValues.cardTitle,
+      link: formValues.imageUrl,
+    });
+    formValidators[cardEditForm.getAttribute("name")].handleResetValidation(
+      true
     );
-    cardsList.addItem(card.generateCard());
-    cardFormValidator.handleResetValidation(true);
     cardEditModal.close();
   },
 });
 
 // Initializations
+anyFormValidation(validationSettings);
 cardsList.renderItems();
-profileFormValidator.enableValidation();
-cardFormValidator.enableValidation();
+formValidators[profileEditForm.getAttribute("name")].enableValidation();
+formValidators[cardEditForm.getAttribute("name")].enableValidation();
 
 //SECTION - Listeners
 
@@ -96,7 +96,9 @@ profileEditModal.setEventListeners();
 cardEditModal.setEventListeners();
 
 profileEditButton.addEventListener("click", () => {
-  profileFormValidator.handleResetValidation(false);
+  formValidators[profileEditForm.getAttribute("name")].handleResetValidation(
+    false
+  );
   ({
     name: profileTitleInput.value,
     description: profileDescriptionInput.value,

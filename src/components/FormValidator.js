@@ -89,9 +89,7 @@ export default class FormValidator {
       this._hideInputError(inputEl);
     });
     if (shouldResetFields === true) {
-      this._inputList.forEach((inputEl) => {
-        inputEl.value = "";
-      });
+      this._formEl.reset();
     }
   }
 }
