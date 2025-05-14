@@ -38,9 +38,10 @@ This is a project for Sprints 3-8 in the TripleTen Software Engineering Practicu
 - [Project 6](https://www.figma.com/design/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?node-id=0-1&p=f&t=xgMAU5UTCCWWjenU-0) on Figma
 - Projects 7 & 8 are specific to JavaScript modules, without introduction of new functionality or design.
 
-**Active URL**
+<!-- **Active URL**
 
-- Hosted on [GitHub Pages](https://MegElizaEgg.github.io/se_project_aroundtheus)
+- Hosted on [GitHub Pages](https://MegElizaEgg.github.io/se_project_aroundtheus) -->
+<!-- GitHub Pages is not pulling correctly because it looks for the index.js in the root of the project; however, this was moved to the src folder. Uncertain how to fix publishing from a different folder; waiting for continued info on Webpack -->
 
 **Video Summary**
 
