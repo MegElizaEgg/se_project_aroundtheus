@@ -16,6 +16,8 @@ This is a project for Sprints 3-8 in the TripleTen Software Engineering Practicu
 - Transitions
 - Media Queries
 
+<!-- The following gif is no longer working correctly, check the filepath -->
+
 ![Media Query Settings](images/readme-resolutions.gif)
 
 ### JavaScript
