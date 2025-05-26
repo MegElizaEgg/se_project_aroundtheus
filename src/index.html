@@ -20,12 +20,16 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            id="imageProfile"
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Avatar"
-            class="profile__image"
-          />
+          <div class="profile__image-div">
+            <img
+              id="imageProfile"
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="Avatar"
+              class="profile__image-pic"
+            />
+            <button class="profile__image-edit"></button>
+            <!-- the edit pencil needs to sit over top of the above image -->
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -43,6 +47,42 @@
         <section class="card page__section" id="card-section-wrapper"></section>
       </main>
       <footer class="footer page__section">&copy; 2024 Around The U.S.</footer>
+    </div>
+
+    <!-- Profile Pic Edit modal -->
+    <div class="modal" id="profile-pic-edit-modal">
+      <!-- I might need a totally new class for this modal - styling does not match the form stuff since there's only one input -->
+      <div class="modal__container">
+        <button class="modal__close" id="profile-pic-edit-close"></button>
+        <p class="modal__heading">Change profile picture</p>
+        <form
+          class="modal__form"
+          id="profile-pic-edit-form"
+          name="profilePicEditForm"
+        >
+          <label class="modal__label">
+            <input
+              class="modal__input"
+              type="url"
+              name="profileImageUrl"
+              id="profile-pic-url-input"
+              placeholder="Image URL"
+              required
+            />
+            <!-- check the validation info above -->
+            <span class="modal__error" id="profile-pic-url-input-error"></span>
+          </label>
+
+          <button
+            type="submit"
+            class="modal__submit modal__submit_inactive"
+            disabled
+          >
+            Save
+          </button>
+          <!-- check this button, no edits so far -->
+        </form>
+      </div>
     </div>
 
     <!-- Profile Edit modal -->
@@ -92,7 +132,7 @@
       </div>
     </div>
 
-    <!-- (Gallery) New modal -->
+    <!-- Card Edit modal -->
     <div class="modal" id="card-edit-modal">
       <div class="modal__container">
         <button class="modal__close" id="card-edit-close"></button>
@@ -130,6 +170,25 @@
       </div>
     </div>
 
+    <!-- Card Delete Modal -->
+    <div class="modal" id="card-delete-modal">
+      <!-- add modal_opened to the above div via js -->
+      <!-- I might need a totally new class for this modal - styling does not match the form stuff since there's no input -->
+      <div class="modal__container">
+        <button class="modal__close" id="card-delete-close"></button>
+        <p class="modal__heading">Are you sure?</p>
+        <!-- do i need the form or just the button? -->
+        <form class="modal__form" id="card-delete-form" name="cardDeleteForm">
+          <!-- there is no validation on this one -->
+          <!-- is this a submit, do I need a new class? -->
+          <button type="submit" class="modal__submit" id="card-delete-submit">
+            <!-- removed (above) class that disables and the disabled (flag?) -->
+            Yes
+          </button>
+        </form>
+      </div>
+    </div>
+
     <!-- Preview Image Modal -->
     <div class="modal" id="preview-image-modal">
       <div class="modal__container modal__container_type_preview">
@@ -152,7 +211,5 @@
         </div>
       </div>
     </template>
-
-    <!-- <script type="module" src="./pages/index.js"></script> -->
   </body>
 </html>

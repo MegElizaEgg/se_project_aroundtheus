@@ -1,10 +1,13 @@
 // Example how to make request to the project server (this case, /cards); makes sure to use correct auth token
 // auth needs to be done with every request: "e315e92f-7d1b-43f2-b057-cdca1769e40c"
 
-//TODO - (noted later) MAKE A NEW POPUP FOR DELETE, MAKE SURE IT INTERACTS CORRECTLY WITH INDEX.JS (#5)
+//TODO - (see later) style delete popup, verify delete vs submit interaction with popup classes, verify if popupwithform is correct class (since just button), connect popup to trash cans
 //TODO - HTML + CSS for the edit profile button per figma (#8)
-//TODO - HTML + CSS for the popup to edit profile picture (#8)
-//TODO - Make sure the above interacts correctly with the index.js
+//TODO - style edit profile pic popup, connect popup to edit pencil (#8)
+
+//TODO - Make sure ALL the above interacts correctly with the index.js
+
+//TODO - adjust all 1s transitions CSS to 0.3s
 
 class Api {
   constructor(options) {}
