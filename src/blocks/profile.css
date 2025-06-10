@@ -67,7 +67,7 @@
   overflow: hidden;
 }
 
-.profile__description {
+.profile__about {
   font-size: 18px;
   line-height: 1.2;
   font-weight: 400;
@@ -115,7 +115,7 @@
     font-size: calc(42px * 0.7);
   }
 
-  .profile__description {
+  .profile__about {
     font-size: calc(18px * 0.7);
   }
 
@@ -148,7 +148,7 @@
     max-width: 196px;
   }
 
-  .profile__description {
+  .profile__about {
     font-size: 14px;
     grid-column-end: span 2;
     justify-self: center;

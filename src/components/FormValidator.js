@@ -55,13 +55,13 @@ export default class FormValidator {
   }
 
   _showInputError(inputEl) {
-    this._errorEl = this._formEl.querySelector(`#${inputEl.id}-error`);
+    this._errorEl = this._formEl.querySelector(`#${inputEl.id}Error`);
     this._errorEl.textContent = inputEl.validationMessage;
     this._errorEl.classList.add(this._errorClass);
   }
 
   _hideInputError(inputEl) {
-    this._errorMessageEl = this._formEl.querySelector(`#${inputEl.id}-error`);
+    this._errorMessageEl = this._formEl.querySelector(`#${inputEl.id}Error`);
     this._errorMessageEl.textContent = "";
     this._errorMessageEl.classList.remove(this._errorClass);
   }
@@ -85,6 +85,7 @@ export default class FormValidator {
   // combined resetValidation and handleValidSubmit
   handleResetValidation(shouldResetFields) {
     this._disableButton();
+    this._toggleButtonState();
     this._inputList.forEach((inputEl) => {
       this._hideInputError(inputEl);
     });

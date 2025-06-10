@@ -1,20 +1,53 @@
+// to render to the DOM
+
 export default class UserInfo {
-  // responsible for rendering information about the user on the page
-  constructor({ nameSelector, jobSelector }) {
-    this._profileName = document.querySelector(nameSelector);
-    this._profileDescription = document.querySelector(jobSelector);
+  constructor(userObj) {
+    this._userObj = userObj;
+    // holds DOM node references; is passed userNodes for formInputs and current user info on page
+    this._profileId = null;
   }
 
-  //SECTION - public methods
-  getUserInfo() {
+  _getCurrentUser() {
+    // return an object of currently displayed user - to give to associated form
+
     return {
-      name: this._profileName.textContent,
-      description: this._profileDescription.textContent,
+      name: this._userObj.curName.textContent,
+      about: this._userObj.curAbout.textContent,
+      avatar: this._userObj.curAvatar.src, // is this src?
     };
   }
 
-  setUserInfo({ name, description }) {
-    this._profileName.textContent = name;
-    this._profileDescription.textContent = description;
+  // inputVals can be formValues or apiRes
+  // to update DOM from form input or API result; returns a user object
+  setCurrentUser(inputVals) {
+    let avatarVal = inputVals.avatar || inputVals.avatarInput;
+    let nameVal = inputVals.name || inputVals.nameInput;
+    let aboutVal = inputVals.about || inputVals.aboutInput;
+    let idVal = inputVals._id;
+
+    if (avatarVal) {
+      this._userObj.curAvatar.src = avatarVal;
+    }
+    if (nameVal) {
+      this._userObj.curName.textContent = nameVal;
+    }
+    if (aboutVal) {
+      this._userObj.curAbout.textContent = aboutVal;
+    }
+    if (idVal) this._profileId = idVal;
+
+    return {
+      avatar: avatarVal,
+      name: nameVal,
+      about: aboutVal,
+      _id: idVal,
+    };
+  }
+
+  // takes current user object and fills form inputs, called in profiledEditButton event listener
+  fillUserForm() {
+    const formVals = this._getCurrentUser();
+    this._userObj.nameInput.value = `${formVals.name}`;
+    this._userObj.aboutInput.value = `${formVals.about}`;
   }
 }

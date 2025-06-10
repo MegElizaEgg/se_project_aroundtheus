@@ -1,17 +1,31 @@
+import { cardDeleteModal, cardDeleteForm } from "../utils/utils";
 export default class Card {
-  constructor(data, cardSelector, handlePreviewImage) {
+  constructor(
+    data,
+    cardSelector,
+    handlePreviewImage,
+    prepareDelete,
+    apiInstance
+  ) {
     this._name = data.name;
     this._link = data.link;
+    this._cardId = data._id;
     this._cardSelector = cardSelector;
     this._handlePreviewImage = handlePreviewImage;
+    this._prepareDelete = prepareDelete;
+    this._api = apiInstance;
   }
 
   //SECTION - Private Methods
 
   // Listeners
+
+  //TODO - on the new form modals
   _setEventListeners() {
     this._deleteButton.addEventListener("click", () => {
-      this._handleDeleteCard();
+      this._prepareDelete(this);
+      // `this` passes WHICH card is used as `cardInstance`:
+      // extracts the id for API and sends the full instance to modal
     });
 
     this._likeButton.addEventListener("click", () => {
@@ -31,13 +45,41 @@ export default class Card {
     return cardElement;
   }
 
+  _toggleLikeIcon() {
+    this._likeButton.classList.toggle("card__like-button_active");
+  }
+
   // Handlers
-  _handleDeleteCard() {
+
+  //TODO - fix deleteCard in API
+  handleDeleteCard() {
     this._cardElement.remove();
   }
 
+  //REVIEW - should this include isLiked T/F from API instead?
   _handleLikeIcon() {
-    this._likeButton.classList.toggle("card__like-button_active");
+    if (this._likeButton.classList.contains("card__like-button_active")) {
+      this._api
+        .deleteLike(this._cardId)
+        .then(
+          () => {
+            this._toggleLikeIcon();
+          }
+          // do I do anything with the result here?
+        )
+        .catch((err) => {
+          return Promise.reject(`${err}`);
+        });
+    } else {
+      this._api
+        .addLike(this._cardId)
+        .then(() => {
+          this._toggleLikeIcon();
+        })
+        .catch((err) => {
+          return Promise.reject(`${err}`);
+        });
+    }
   }
 
   //SECTION - Public Methods
@@ -50,7 +92,6 @@ export default class Card {
       ".card__delete-button"
     );
     this._cardImage = this._cardElement.querySelector(".card__image");
-
     this._cardElement.querySelector(".card__image").src = this._link;
     this._cardElement.querySelector(".card__text").textContent = this._name;
 

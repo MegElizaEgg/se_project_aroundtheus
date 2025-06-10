@@ -95,6 +95,15 @@
   transition: font-size 1s ease;
 }
 
+.modal__heading-delete {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #000;
+  margin: 0 0 38px 0;
+  transition: font-size 1s ease;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -162,6 +171,10 @@
   cursor: default;
 }
 
+.modal__delete-btn {
+  margin-top: 0;
+}
+
 @media screen and (max-width: 635px) {
   .modal__container {
     margin: auto;
@@ -176,10 +189,14 @@
     font-size: 18px;
     margin: 0 0 46px 0;
   }
+
   .modal__submit {
     font-size: 14px;
     height: 46px;
     margin-top: 46px;
+  }
+  .modal__delete-btn {
+    margin-top: 0;
   }
 }
 
