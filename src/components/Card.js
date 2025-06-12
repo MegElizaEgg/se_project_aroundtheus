@@ -1,4 +1,3 @@
-import { cardDeleteModal, cardDeleteForm } from "../utils/utils";
 export default class Card {
   constructor(
     data,
@@ -16,16 +15,10 @@ export default class Card {
     this._api = apiInstance;
   }
 
-  //SECTION - Private Methods
-
   // Listeners
-
-  //TODO - on the new form modals
   _setEventListeners() {
     this._deleteButton.addEventListener("click", () => {
       this._prepareDelete(this);
-      // `this` passes WHICH card is used as `cardInstance`:
-      // extracts the id for API and sends the full instance to modal
     });
 
     this._likeButton.addEventListener("click", () => {
@@ -50,29 +43,23 @@ export default class Card {
   }
 
   // Handlers
-
-  //TODO - fix deleteCard in API
   handleDeleteCard() {
     this._cardElement.remove();
   }
 
-  //REVIEW - should this include isLiked T/F from API instead?
   _handleLikeIcon() {
     if (this._likeButton.classList.contains("card__like-button_active")) {
       this._api
-        .deleteLike(this._cardId)
-        .then(
-          () => {
-            this._toggleLikeIcon();
-          }
-          // do I do anything with the result here?
-        )
+        .deleteLikeApi(this._cardId)
+        .then(() => {
+          this._toggleLikeIcon();
+        })
         .catch((err) => {
           return Promise.reject(`${err}`);
         });
     } else {
       this._api
-        .addLike(this._cardId)
+        .addLikeApi(this._cardId)
         .then(() => {
           this._toggleLikeIcon();
         })

@@ -3,22 +3,17 @@
 export default class UserInfo {
   constructor(userObj) {
     this._userObj = userObj;
-    // holds DOM node references; is passed userNodes for formInputs and current user info on page
     this._profileId = null;
   }
 
   _getCurrentUser() {
-    // return an object of currently displayed user - to give to associated form
-
     return {
       name: this._userObj.curName.textContent,
       about: this._userObj.curAbout.textContent,
-      avatar: this._userObj.curAvatar.src, // is this src?
+      avatar: this._userObj.curAvatar.src,
     };
   }
 
-  // inputVals can be formValues or apiRes
-  // to update DOM from form input or API result; returns a user object
   setCurrentUser(inputVals) {
     let avatarVal = inputVals.avatar || inputVals.avatarInput;
     let nameVal = inputVals.name || inputVals.nameInput;
@@ -44,7 +39,6 @@ export default class UserInfo {
     };
   }
 
-  // takes current user object and fills form inputs, called in profiledEditButton event listener
   fillUserForm() {
     const formVals = this._getCurrentUser();
     this._userObj.nameInput.value = `${formVals.name}`;

@@ -1,14 +1,3 @@
-//ANCHOR - THIS SHOULD ONLY HANDLE THE API - the handling of responses needs to be in index.js
-//NOTE - Remember, in .this(), (usually in the script pages where you are calling it once the API has returned), it is best to use a callback method inside of it, rather than running the method right away
-
-//TODO - verify if popupwithform is correct class (since just button), connect popup to trash cans
-
-//TODO - style edit profile pic popup, connect popup to edit pencil (#8)
-
-//TODO - Make sure ALL the above interacts correctly with the index.js
-
-//TODO - adjust all 1s transitions CSS to 0.3s
-
 export default class Api {
   constructor(config) {
     this._baseUrl = config.baseUrl;
@@ -128,8 +117,4 @@ export default class Api {
       return this._checkResponse(res, "DELETE");
     });
   }
-
-  //TODO - 9. Improve UX of all forms
-  // When editing a profile, you will notify the user that the upload process is underway by changing the button text to be "Saving...". This should be shown until the data has finished uploading:
-  // Do the same thing for the forms used to add new cards and for the form used to update the user's profile picture.
 }

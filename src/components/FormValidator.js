@@ -12,8 +12,6 @@ export default class FormValidator {
     this._submitBtn = this._formEl.querySelector(this._submitButtonSelector);
   }
 
-  //SECTION - Private Methods
-
   //Listeners
   _setEventListeners() {
     this._toggleButtonState();
@@ -71,8 +69,6 @@ export default class FormValidator {
     return this._inputList.every((inputEl) => inputEl.validity.valid);
   }
 
-  //SECTION - Public Methods
-
   // DOM Manipulation
   enableValidation() {
     this._formEl.addEventListener("submit", (e) => {
@@ -82,7 +78,6 @@ export default class FormValidator {
   }
 
   // Handlers
-  // combined resetValidation and handleValidSubmit
   handleResetValidation(shouldResetFields) {
     this._disableButton();
     this._toggleButtonState();

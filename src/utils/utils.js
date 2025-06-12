@@ -1,32 +1,5 @@
 // Other code, such as the array of initial cards and any configuration objects you are using, should be moved to a separate utils/constants.js file and imported into index.js.
 
-// export const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-//   },
-//   {
-//     name: "Lake Louise",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-//   },
-//   {
-//     name: "Bald Mountains",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-//   },
-//   {
-//     name: "Latemar",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-//   },
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-//   },
-//   {
-//     name: "Lago di Braies",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-//   },
-// ];
-
 // credit https://avatar-placeholder.iran.liara.run/avatars/female
 
 export const validationSettings = {
@@ -41,7 +14,6 @@ export const validationSettings = {
 //SECTION - Variables
 
 //Wrappers
-//REVIEW - doc.forms expects name attr of form elem
 export const avatarEditForm = document.forms["avatarEditForm"];
 export const profileEditForm = document.forms["profileEditForm"];
 export const cardEditForm = document.forms["cardEditForm"];
@@ -62,7 +34,6 @@ export const userNodes = {
   nameInput: profileEditForm.querySelector("#nameInput"),
   aboutInput: profileEditForm.querySelector("#aboutInput"),
   avatarInput: avatarEditForm.querySelector("#avatarInput"),
-  // profileAvatar: document.querySelector("#imageProfile"), .. is this the same as curAvatar?
   curAvatar: document.querySelector(".profile__image-pic"),
   curName: document.querySelector(".profile__title"),
   curAbout: document.querySelector(".profile__about"),

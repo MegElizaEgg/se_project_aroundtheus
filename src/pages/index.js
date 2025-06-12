@@ -1,5 +1,6 @@
 // when calling a method on api, you are expecting it to return a promise you can chain .then to
 // .then is what you do on the page once the response was successful
+//FIXME - TEST ALL - check the like/dislike button on cards
 
 //SECTION - Imports
 
@@ -175,7 +176,6 @@ const avatarEditModal = new PopupWithForm({
         avatarEditModal.renderLoading(false);
         return Promise.reject(`${err}`);
       });
-    // .finally(avatarEditModal.renderLoading(false));
   },
 });
 
@@ -190,12 +190,13 @@ const profileEditModal = new PopupWithForm({
           profileEditForm.getAttribute("name")
         ].handleResetValidation(true);
         profileEditModal.close();
+        profileEditModal.renderLoading(false);
       })
       .catch((err) => {
         console.error(err);
+        profileEditModal.renderLoading(false);
         alert(`${err}`);
-      })
-      .finally(profileEditModal.renderLoading(false));
+      });
   },
 });
 
@@ -213,12 +214,13 @@ const cardEditModal = new PopupWithForm({
           true
         );
         cardEditModal.close();
+        cardEditModal.renderLoading(false);
       })
       .catch((err) => {
         console.error(err);
+        cardEditModal.renderLoading(false);
         alert(`${err}`);
-      })
-      .finally(cardEditModal.renderLoading(false));
+      });
   },
 });
 
