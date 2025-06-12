@@ -18,7 +18,7 @@ export default class Api {
           );
         } else {
           console.error("Full error response:", res);
-          return Promise.reject(`Error: ${res}`);
+          return Promise.reject(`Error: ${res.status}`);
         }
       });
     } else {
