@@ -109,12 +109,13 @@ const pageApi = new Api({
 const userInfo = new UserInfo(userNodes);
 
 pageApi
-  .apiPromiseAll()
+  .apiPromiseAll() // uses getInitialCards (api)
   .then((res) => {
     let [initialUser, initialCards] = res;
     return { initialUser, initialCards };
   })
   .then((res) => {
+    // update user info, create the card section
     const profileId = userInfo.setCurrentUser(res.initialUser)._id;
     profileRender = res.initialUser;
     userInfo.setCurrentUser(profileRender);
@@ -253,7 +254,8 @@ cardDeleteModal.setEventListeners();
 
 avatarEditButton.addEventListener("click", () => {
   formValidators[avatarEditForm.getAttribute("name")].handleResetValidation(
-    true //REVIEW -  I think we should clear the url and the validation, correct?
+    true //REVIEW - I think we should clear the url and validation, correct?
+    // "No, you disable the button in the submit handler, so you don't need it when you open the avatar modal"
   );
   avatarEditModal.open();
 });

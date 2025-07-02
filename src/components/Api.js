@@ -27,6 +27,7 @@ export default class Api {
   }
 
   apiPromiseAll() {
+    // Promise.all is a pre-promise, holding all the baby promises
     return Promise.all([this.getUserApi(), this.getInitialCards()])
       .then((res) => {
         return res;
