@@ -93,7 +93,8 @@ export default class Card {
     );
 
     this._cardImage = this._cardElement.querySelector(".card__image");
-    this._cardElement.querySelector(".card__image").src = this._link;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
     this._cardElement.querySelector(".card__text").textContent = this._name;
 
     this._setLikeState();
