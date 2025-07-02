@@ -175,7 +175,6 @@ const avatarEditModal = new PopupWithForm({
       .catch((err) => {
         console.error(err);
         avatarEditModal.renderLoading(false);
-        return Promise.reject(`${err}`);
       });
   },
 });
@@ -208,9 +207,9 @@ const cardEditModal = new PopupWithForm({
     pageApi
       .addCardApi(formValues.cardTitle, formValues.imageUrl)
       .then((res) => {
-        renderCard({ name: res.name, link: res.link });
+        renderCard(res);
         // pulls 'item' from the res for renderCard, sends to the Card constructor 'data'
-        // data should include the properties: name, link, _id
+        // data includes properties for name, link, _id and owner (eventually used for delete permissions)
         formValidators[cardEditForm.getAttribute("name")].handleResetValidation(
           true
         );
