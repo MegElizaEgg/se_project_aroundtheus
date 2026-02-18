@@ -1,7 +1,6 @@
 // webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -11,6 +10,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
+    clean: true,
     filename: "main.js",
     publicPath: "",
   },
@@ -30,7 +30,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: "/node_modules/",
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -38,8 +38,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            // add an options object
-            // options: { importLoaders: 1 }
           },
           "postcss-loader",
         ],
@@ -54,8 +52,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       favicon: "./src/images/favicon.ico",
+      // new instructions don't have the favicon above
     }),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
   ],
 };
