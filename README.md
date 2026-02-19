@@ -1,6 +1,6 @@
 # Software Engineering Project: Around The U.S.
 
-This is a project for Sprints 3-8 in the TripleTen Software Engineering Practicum. The layout should show adaptive web design, and the elements should all display correctly on popular screen sizes: 1280px given for the desktop view and 320px given for the mobile view. Transitions between these sizes are made to be smooth and readable. Additionally, there is functionality to edit the profile information, add new cards to the gallery, and 'like' separate cards or delete gallery posts. Finally, each modal popup is responsive to the edit and add buttons in profile section, with form validation required for submission.
+This is a project for Sprints 3-9 in the TripleTen Software Engineering Practicum. The layout should show adaptive web design, and the elements should all display correctly on popular screen sizes: 1280px given for the desktop view and 320px given for the mobile view. Transitions between these sizes are made to be smooth and readable. Additionally, there is functionality to edit the profile information, add new cards to the gallery, and 'like' separate cards or delete gallery posts. Finally, each modal popup is responsive to the edit and add buttons in profile section, with form validation required for submission.
 
 ## Programming Languages and Features
 
@@ -16,7 +16,7 @@ This is a project for Sprints 3-8 in the TripleTen Software Engineering Practicu
 - Transitions
 - Media Queries
 
-![Media Query Settings](images/readme-resolutions.gif)
+![Media Query Settings](src/images/readme-resolutions.gif)
 
 ### JavaScript
 
@@ -27,6 +27,7 @@ This is a project for Sprints 3-8 in the TripleTen Software Engineering Practicu
 - Semantically appropriate variable names
 - Custom Form Validation
 - OOP & Modular Classes
+- API Integration
 
 ## Links
 
@@ -37,11 +38,7 @@ This is a project for Sprints 3-8 in the TripleTen Software Engineering Practicu
 - [Project 5](<https://www.figma.com/design/JFPhASqvZ5pBjQV2ouUlim/Sprint-5_-Around-The-U.S.-_-desktop-%2B-mobile-(Copy)?node-id=0-1&p=f&t=bEg0SRjyUwcqDETV-0>) on Figma
 - [Project 6](https://www.figma.com/design/N3zUeequnpvMX807FfYAZW/Sprint-6-Around-The-U.S.?node-id=0-1&p=f&t=xgMAU5UTCCWWjenU-0) on Figma
 - Projects 7 & 8 are specific to JavaScript modules, without introduction of new functionality or design.
-
-<!-- **Active URL**
-
-- Hosted on [GitHub Pages](https://MegElizaEgg.github.io/se_project_aroundtheus) -->
-<!-- GitHub Pages is not pulling correctly because it looks for the index.js in the root of the project; however, this was moved to the src folder. Uncertain how to fix publishing from a different folder; waiting for continued info on Webpack -->
+- [Project 9](https://www.figma.com/file/E5x6ib3osaUUNwLRRAsTDX/Sprint-9_-Applied-JavaScript-?t=3hvVWRz9LUFsxyNn-6) on Figma
 
 **Video Summary**
 

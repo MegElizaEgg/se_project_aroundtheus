@@ -3,16 +3,35 @@ import Popup from "./Popup.js";
 export default class PopupWithForm extends Popup {
   constructor({ popupSelector, handleFormSubmit }) {
     super(popupSelector);
+
     this._handleFormSubmit = handleFormSubmit;
+    this._submitBtn = this._popup
+      .querySelector(".modal__form")
+      .querySelector(".modal__submit");
+    // currently finds and updates every modal button, not specific to this._popup?
   }
 
   setEventListeners() {
     this._popup.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
+      this._handleFormSubmit(this._getInputValues(), this.instance, this.id);
       this._popup.querySelector(".modal__form").reset();
     });
     super.setEventListeners();
+  }
+
+  open(instanceOpt = null, idOpt = null) {
+    this.instance = instanceOpt;
+    this.id = idOpt;
+    super.open();
+  }
+
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this._submitBtn.textContent = "Saving...";
+    } else {
+      this._submitBtn.textContent = "Save";
+    }
   }
 
   _getInputValues() {

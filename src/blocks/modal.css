@@ -79,7 +79,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url(../images/close.svg);
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }
 
 .modal__close:hover {
@@ -92,7 +92,16 @@
   line-height: 1.2;
   color: #000;
   margin: 0 0 24px 0;
-  transition: font-size 1s ease;
+  transition: font-size 0.3s ease;
+}
+
+.modal__heading-delete {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #000;
+  margin: 0 0 38px 0;
+  transition: font-size 0.3s ease;
 }
 
 .modal__form {
@@ -142,8 +151,8 @@
   background-color: #000;
   border-radius: 2px;
   height: 50px;
-  transition: font-size 1s ease;
-  transition: opacity 1s ease;
+  transition: font-size 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .modal__submit:hover {
@@ -162,6 +171,10 @@
   cursor: default;
 }
 
+.modal__delete-btn {
+  margin-top: 0;
+}
+
 @media screen and (max-width: 635px) {
   .modal__container {
     margin: auto;
@@ -176,10 +189,14 @@
     font-size: 18px;
     margin: 0 0 46px 0;
   }
+
   .modal__submit {
     font-size: 14px;
     height: 46px;
     margin-top: 46px;
+  }
+  .modal__delete-btn {
+    margin-top: 0;
   }
 }
 

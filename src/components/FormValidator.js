@@ -12,8 +12,6 @@ export default class FormValidator {
     this._submitBtn = this._formEl.querySelector(this._submitButtonSelector);
   }
 
-  //SECTION - Private Methods
-
   //Listeners
   _setEventListeners() {
     this._toggleButtonState();
@@ -55,13 +53,13 @@ export default class FormValidator {
   }
 
   _showInputError(inputEl) {
-    this._errorEl = this._formEl.querySelector(`#${inputEl.id}-error`);
+    this._errorEl = this._formEl.querySelector(`#${inputEl.id}Error`);
     this._errorEl.textContent = inputEl.validationMessage;
     this._errorEl.classList.add(this._errorClass);
   }
 
   _hideInputError(inputEl) {
-    this._errorMessageEl = this._formEl.querySelector(`#${inputEl.id}-error`);
+    this._errorMessageEl = this._formEl.querySelector(`#${inputEl.id}Error`);
     this._errorMessageEl.textContent = "";
     this._errorMessageEl.classList.remove(this._errorClass);
   }
@@ -70,8 +68,6 @@ export default class FormValidator {
   _hasValidInput() {
     return this._inputList.every((inputEl) => inputEl.validity.valid);
   }
-
-  //SECTION - Public Methods
 
   // DOM Manipulation
   enableValidation() {
@@ -82,9 +78,9 @@ export default class FormValidator {
   }
 
   // Handlers
-  // combined resetValidation and handleValidSubmit
   handleResetValidation(shouldResetFields) {
     this._disableButton();
+    this._toggleButtonState();
     this._inputList.forEach((inputEl) => {
       this._hideInputError(inputEl);
     });

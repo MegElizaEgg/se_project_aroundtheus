@@ -4,11 +4,43 @@
   padding-top: 40px;
 }
 
-.profile__image {
+.profile__image-div {
+  position: relative;
+  margin: 0 24px 0 0;
+}
+
+.profile__image-pic {
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  margin: 0 24px 0 0;
+  position: relative;
+}
+
+.profile__image-edit {
+  background: transparent url(../images/edit-icon.svg) center no-repeat;
+  background-size: 26px;
+  border: none;
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.profile__image-div:hover .profile__image-pic {
+  opacity: 20%;
+  /* check this opacity */
+  transition: opacity 0.3s ease;
+}
+
+.profile__image-div:hover .profile__image-edit {
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
 }
 
 .profile__info {
@@ -29,20 +61,20 @@
   grid-area: title;
   max-width: 375px;
   margin: 0;
-  transition: font-size 1s ease;
+  transition: font-size 0.3s ease;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.profile__description {
+.profile__about {
   font-size: 18px;
   line-height: 1.2;
   font-weight: 400;
   grid-area: description;
   max-width: 415px;
   margin: 0;
-  transition: font-size 1s ease;
+  transition: font-size 0.3s ease;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -54,7 +86,7 @@
   width: 24px;
   grid-area: button;
   border: solid 1px white;
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }
 
 .profile__edit-button:hover {
@@ -69,8 +101,8 @@
   margin-left: auto;
   border: solid 2px white;
   border-radius: 2px;
-  transition: width 1s ease;
-  transition: opacity 1s ease;
+  transition: width 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .profile__card-edit-button:hover {
@@ -83,7 +115,7 @@
     font-size: calc(42px * 0.7);
   }
 
-  .profile__description {
+  .profile__about {
     font-size: calc(18px * 0.7);
   }
 
@@ -98,7 +130,11 @@
     padding-top: 42px;
   }
 
-  .profile__image {
+  .profile__image-div {
+    margin: 0 auto 26.25px;
+  }
+
+  .profile__image-edit {
     margin: 0 auto 26.25px;
   }
 
@@ -112,7 +148,7 @@
     max-width: 196px;
   }
 
-  .profile__description {
+  .profile__about {
     font-size: 14px;
     grid-column-end: span 2;
     justify-self: center;

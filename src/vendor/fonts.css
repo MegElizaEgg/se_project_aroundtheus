@@ -1,23 +1,2 @@
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(./fonts/Inter-Regular.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(./fonts/Inter-Medium.woff2) format("woff2");
-}
-
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url(./fonts/Inter-Black.woff2) format("woff2");
-}
+/* Load Inter from Google Fonts instead of local files */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap");
